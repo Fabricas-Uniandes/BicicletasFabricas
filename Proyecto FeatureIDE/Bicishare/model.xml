@@ -2,8 +2,57 @@
 	<featureModel>
 		<properties/>
 		<struct>
-			<and abstract="true" mandatory="true" name="Bicishare">
-				<feature name="Base"/>
+			<and abstract="true" mandatory="true" name="BiciSharing">
+				<and mandatory="true" name="Usuarios">
+					<feature mandatory="true" name="Crear"/>
+					<feature mandatory="true" name="Modificar"/>
+					<feature mandatory="true" name="Validar"/>
+				</and>
+				<and mandatory="true" name="Prestamo">
+					<and mandatory="true" name="Bicicletas">
+						<feature mandatory="true" name="Retirar Bicicleta"/>
+						<feature mandatory="true" name="Entregar Bicicleta"/>
+					</and>
+					<and name="Accesorios">
+						<feature mandatory="true" name="Retirar Accesorio"/>
+						<feature mandatory="true" name="Entregar Accesorio"/>
+					</and>
+				</and>
+				<or name="Pago">
+					<feature name="PSE"/>
+					<feature name="Efectivo"/>
+					<feature name="Tarjeta de Credito"/>
+					<feature name="Convenios"/>
+				</or>
+				<or name="Gamification">
+					<feature name="Ver Retos"/>
+					<feature name="Crear Retos"/>
+					<feature name="Contador"/>
+					<feature name="Ver Avance"/>
+					<feature name="Aprobar Retos"/>
+				</or>
+				<and name="Bonificaciones">
+					<feature mandatory="true" name="Ver Catalogo"/>
+					<feature mandatory="true" name="Seleccionar Premios"/>
+				</and>
+				<and mandatory="true" name="Multas">
+					<feature mandatory="true" name="Registrar"/>
+					<feature mandatory="true" name="Consultar"/>
+					<feature mandatory="true" name="Ajustar"/>
+				</and>
+				<and mandatory="true" name="Inventario">
+					<feature mandatory="true" name="Registar Ingreso"/>
+					<feature mandatory="true" name="Registrar Salida"/>
+					<feature mandatory="true" name="Actualizar Inventario"/>
+					<feature mandatory="true" name="Crear Item"/>
+					<feature mandatory="true" name="Eliminar Item"/>
+					<feature mandatory="true" name="Modificar Estado Item"/>
+				</and>
+				<and mandatory="true" name="Interfaz">
+					<feature mandatory="true" name="Web"/>
+					<feature name="Android"/>
+					<feature name="IOS"/>
+				</and>
 			</and>
 		</struct>
 		<constraints/>
