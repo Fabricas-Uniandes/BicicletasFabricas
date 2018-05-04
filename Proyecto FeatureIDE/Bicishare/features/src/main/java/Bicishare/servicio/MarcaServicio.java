@@ -10,68 +10,70 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 
 /**
- *  @author eaperador
- *  @generated
+ * @author eaperador
+ * @generated
  */
 @Stateless
 @Path("/Marca")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class MarcaServicio {
-	
-	@EJB
-    private MarcaLogica logica;
 
-	
+	@EJB
+	private MarcaLogica logica;
+
 	/**
-	* retorna una lista con los Marca que se encuentran en la base de datos
-	* @return retorna una lista de MarcaDTO
-	* @generated
-	*/
+	 * retorna una lista con los Marca que se encuentran en la base de datos
+	 * 
+	 * @return retorna una lista de MarcaDTO
+	 * @generated
+	 */
 	@GET
-	public List<MarcaDTO> obtenerTodosMarcas(){
+	public List<MarcaDTO> obtenerTodosMarcas() {
 		return logica.obtenerTodos();
 	}
-	
+
 	/**
-	* @param id identificador del elemento Marca
-	* @return Marca del id dado
-	* @generated
-	*/
+	 * @param id
+	 *            identificador del elemento Marca
+	 * @return Marca del id dado
+	 * @generated
+	 */
 	@GET
 	@Path("/{id}")
-	public MarcaDTO obtenerMarca(@PathParam("id") Long id){
+	public MarcaDTO obtenerMarca(@PathParam("id") Long id) {
 		return logica.obtener(id);
 	}
-	
-	
+
 	/**
 	 * almacena la informacion de Marca
-	 * @param dto Marca a guardar
+	 * 
+	 * @param dto
+	 *            Marca a guardar
 	 * @return Marca con los cambios realizados por el proceso de guardar
 	 * @generated
 	 */
 	@POST
-	public MarcaDTO guardarMarca(MarcaDTO dto){
-	    if(dto.getId()!=null){
-	        logica.actualizar(dto);
-	        return dto;
-	    }else{
-	        return logica.guardar(dto);
-	    }
+	public MarcaDTO guardarMarca(MarcaDTO dto) {
+		if (dto.getId() != null) {
+			logica.actualizar(dto);
+			return dto;
+		} else {
+			return logica.guardar(dto);
+		}
 	}
-	
-	
+
 	/**
 	 * elimina el registro Marca con el identificador dado
-	 * @param id identificador del Marca
-	 * @generated 
+	 * 
+	 * @param id
+	 *            identificador del Marca
+	 * @generated
 	 */
 	@DELETE
 	@Path("/{id}")
-	public void borrarMarca(@PathParam("id") Long id){
+	public void borrarMarca(@PathParam("id") Long id) {
 		logica.borrar(id);
 	}
-	
-	
+
 }

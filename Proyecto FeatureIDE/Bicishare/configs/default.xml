@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 	<configuration>
-		<feature automatic="selected" name="Bicishare"/>
-		<feature manual="selected" name="Base"/>
+		<feature automatic="selected" name="BiciSharing"/>
+		<feature automatic="selected" name="Usuarios"/>
+		<feature automatic="selected" name="Crear"/>
+		<feature automatic="selected" name="Modificar"/>
+		<feature automatic="selected" name="Validar"/>
+		<feature automatic="selected" name="Prestamo"/>
+		<feature automatic="selected" name="Bicicletas"/>
+		<feature automatic="selected" name="Retirar Bicicleta"/>
+		<feature automatic="selected" name="Entregar Bicicleta"/>
+		<feature manual="selected" name="Accesorios"/>
+		<feature automatic="selected" name="Retirar Accesorio"/>
+		<feature automatic="selected" name="Entregar Accesorio"/>
+		<feature automatic="selected" name="Multas"/>
+		<feature automatic="selected" name="Registrar"/>
+		<feature automatic="selected" name="Consultar"/>
+		<feature automatic="selected" name="Ajustar"/>
+		<feature automatic="selected" name="Inventario"/>
+		<feature automatic="selected" name="Registar Ingreso"/>
+		<feature automatic="selected" name="Registrar Salida"/>
+		<feature automatic="selected" name="Actualizar Inventario"/>
+		<feature automatic="selected" name="Crear Item"/>
+		<feature automatic="selected" name="Eliminar Item"/>
+		<feature automatic="selected" name="Modificar Estado Item"/>
+		<feature automatic="selected" name="Interfaz"/>
+		<feature automatic="selected" name="Web"/>
 	</configuration>

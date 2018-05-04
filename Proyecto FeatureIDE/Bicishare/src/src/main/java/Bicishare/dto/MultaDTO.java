@@ -6,92 +6,91 @@ import java.util.ArrayList;
 import java.util.Date;
 
 /**
-  * @generated
-  *  @author eaperador
-  */
+ * @generated
+ * @author eaperador
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class MultaDTO {
 
-    public MultaDTO(){
-        //constructor base
-    }
-    
-    public MultaDTO(Long id){
-        this.id=id;
-    }
+	public MultaDTO() {
+		// constructor base
+	}
+
+	public MultaDTO(Long id) {
+		this.id = id;
+	}
 
 	private Long id;
 
-    public Long getId() {
-        return id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-	
-    
-    /**
-    * @generated
-    */
-    private Integer valor;
-    
-    /**
-    * @generated
-    */
-    private String fecha;
-    
-    
-    /**
-    * @generated
-    */
-    private PrestamoDTO prestamo;
-    
-    /**
-    * @return
-    * @generated
-    */
-    public Integer getValor() {
-        return this.valor;
-    }
-    
-    /**
-    * @param
-    * @generated
-    */
-    public void setValor(Integer valor) {
-        this.valor = valor;
-    }
-    /**
-    * @return
-    * @generated
-    */
-    public String getFecha() {
-        return this.fecha;
-    }
-    
-    /**
-    * @param
-    * @generated
-    */
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
-    }
-    
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	/**
-	* @return
-	* @generated
-	*/
+	 * @generated
+	 */
+	private Integer valor;
+
+	/**
+	 * @generated
+	 */
+	private String fecha;
+
+	/**
+	 * @generated
+	 */
+	private PrestamoDTO prestamo;
+
+	/**
+	 * @return
+	 * @generated
+	 */
+	public Integer getValor() {
+		return this.valor;
+	}
+
+	/**
+	 * @param
+	 * @generated
+	 */
+	public void setValor(Integer valor) {
+		this.valor = valor;
+	}
+
+	/**
+	 * @return
+	 * @generated
+	 */
+	public String getFecha() {
+		return this.fecha;
+	}
+
+	/**
+	 * @param
+	 * @generated
+	 */
+	public void setFecha(String fecha) {
+		this.fecha = fecha;
+	}
+
+	/**
+	 * @return
+	 * @generated
+	 */
 	public PrestamoDTO getPrestamo() {
-	    return this.prestamo;
+		return this.prestamo;
 	}
-	
+
 	/**
-	* @param
-	* @generated
-	*/
+	 * @param
+	 * @generated
+	 */
 	public void setPrestamo(PrestamoDTO prestamo) {
-	    this.prestamo = prestamo;
+		this.prestamo = prestamo;
 	}
-	
+
 }

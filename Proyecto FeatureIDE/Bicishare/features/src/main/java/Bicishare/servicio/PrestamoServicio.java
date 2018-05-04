@@ -10,68 +10,70 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 
 /**
- *  @author eaperador
- *  @generated
+ * @author eaperador
+ * @generated
  */
 @Stateless
 @Path("/Prestamo")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class PrestamoServicio {
-	
-	@EJB
-    private PrestamoLogica logica;
 
-	
+	@EJB
+	private PrestamoLogica logica;
+
 	/**
-	* retorna una lista con los Prestamo que se encuentran en la base de datos
-	* @return retorna una lista de PrestamoDTO
-	* @generated
-	*/
+	 * retorna una lista con los Prestamo que se encuentran en la base de datos
+	 * 
+	 * @return retorna una lista de PrestamoDTO
+	 * @generated
+	 */
 	@GET
-	public List<PrestamoDTO> obtenerTodosPrestamos(){
+	public List<PrestamoDTO> obtenerTodosPrestamos() {
 		return logica.obtenerTodos();
 	}
-	
+
 	/**
-	* @param id identificador del elemento Prestamo
-	* @return Prestamo del id dado
-	* @generated
-	*/
+	 * @param id
+	 *            identificador del elemento Prestamo
+	 * @return Prestamo del id dado
+	 * @generated
+	 */
 	@GET
 	@Path("/{id}")
-	public PrestamoDTO obtenerPrestamo(@PathParam("id") Long id){
+	public PrestamoDTO obtenerPrestamo(@PathParam("id") Long id) {
 		return logica.obtener(id);
 	}
-	
-	
+
 	/**
 	 * almacena la informacion de Prestamo
-	 * @param dto Prestamo a guardar
+	 * 
+	 * @param dto
+	 *            Prestamo a guardar
 	 * @return Prestamo con los cambios realizados por el proceso de guardar
 	 * @generated
 	 */
 	@POST
-	public PrestamoDTO guardarPrestamo(PrestamoDTO dto){
-	    if(dto.getId()!=null){
-	        logica.actualizar(dto);
-	        return dto;
-	    }else{
-	        return logica.guardar(dto);
-	    }
+	public PrestamoDTO guardarPrestamo(PrestamoDTO dto) {
+		if (dto.getId() != null) {
+			logica.actualizar(dto);
+			return dto;
+		} else {
+			return logica.guardar(dto);
+		}
 	}
-	
-	
+
 	/**
 	 * elimina el registro Prestamo con el identificador dado
-	 * @param id identificador del Prestamo
-	 * @generated 
+	 * 
+	 * @param id
+	 *            identificador del Prestamo
+	 * @generated
 	 */
 	@DELETE
 	@Path("/{id}")
-	public void borrarPrestamo(@PathParam("id") Long id){
+	public void borrarPrestamo(@PathParam("id") Long id) {
 		logica.borrar(id);
 	}
-	
-	
+
 }
