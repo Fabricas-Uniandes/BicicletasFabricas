@@ -18,7 +18,8 @@ import javax.ws.rs.core.*;
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class LogroServicio {
-
+	/*IF[Gamification]*/
+	
 	@EJB
 	private LogroLogica logica;
 
@@ -75,5 +76,5 @@ public class LogroServicio {
 	public void borrarLogro(@PathParam("id") Long id) {
 		logica.borrar(id);
 	}
-
+	/*IF[Gamification]*/
 }

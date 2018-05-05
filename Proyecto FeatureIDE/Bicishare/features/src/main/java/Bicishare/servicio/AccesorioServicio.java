@@ -13,12 +13,13 @@ import javax.ws.rs.core.*;
  * @author eaperador
  * @generated
  */
+
 @Stateless
 @Path("/Accesorio")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class AccesorioServicio {
-
+	/*if[Accesorios]*/
 	@EJB
 	private AccesorioLogica logica;
 
@@ -75,5 +76,5 @@ public class AccesorioServicio {
 	public void borrarAccesorio(@PathParam("id") Long id) {
 		logica.borrar(id);
 	}
-
+	/*end[Accesorios]*/
 }

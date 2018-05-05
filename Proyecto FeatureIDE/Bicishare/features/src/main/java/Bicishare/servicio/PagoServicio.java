@@ -18,7 +18,7 @@ import javax.ws.rs.core.*;
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class PagoServicio {
-
+	/*if[Pago]*/
 	@EJB
 	private PagoLogica logica;
 
@@ -75,5 +75,5 @@ public class PagoServicio {
 	public void borrarPago(@PathParam("id") Long id) {
 		logica.borrar(id);
 	}
-
+	/*end[Pago]*/
 }
