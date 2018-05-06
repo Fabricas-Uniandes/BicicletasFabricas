@@ -24,13 +24,13 @@
 					<feature name="Tarjeta de Credito"/>
 					<feature name="Convenios"/>
 				</or>
-				<or name="Gamification">
-					<feature name="Ver Retos"/>
-					<feature name="Crear Retos"/>
-					<feature name="Contador"/>
-					<feature name="Ver Avance"/>
-					<feature name="Aprobar Retos"/>
-				</or>
+				<and name="Gamification">
+					<feature mandatory="true" name="Ver Retos"/>
+					<feature mandatory="true" name="Crear Retos"/>
+					<feature mandatory="true" name="Contador"/>
+					<feature mandatory="true" name="Ver Avance"/>
+					<feature mandatory="true" name="Aprobar Retos"/>
+				</and>
 				<and name="Bonificaciones">
 					<feature mandatory="true" name="Ver Catalogo"/>
 					<feature mandatory="true" name="Seleccionar Premios"/>

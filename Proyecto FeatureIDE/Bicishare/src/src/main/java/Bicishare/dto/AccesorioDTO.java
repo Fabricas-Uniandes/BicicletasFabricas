@@ -8,9 +8,9 @@ import java.util.ArrayList;
  * @generated
  * @author eaperador
  */
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AccesorioDTO {
-
 	public AccesorioDTO() {
 		// constructor base
 	}
@@ -107,5 +107,4 @@ public class AccesorioDTO {
 	public void setFoto(String foto) {
 		this.foto = foto;
 	}
-
 }
