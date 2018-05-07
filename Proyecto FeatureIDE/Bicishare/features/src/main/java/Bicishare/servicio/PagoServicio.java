@@ -47,10 +47,8 @@ public class PagoServicio {
 
 	@GET
 	@Path("/bancos")
-	public List<BancoDTO> obtenerBancos() {
-		logica.listaBancos();
-		List<BancoDTO> lista = new List<BancoDTO>();
-		return lista;
+	public Object obtenerBancos() {
+		return logica.listaBancos();
 	}
 	/**
 	 * almacena la informacion de Pago
