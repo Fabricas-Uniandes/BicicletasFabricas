@@ -3,6 +3,8 @@ package Bicishare.logica;
 import Bicishare.dto.*;
 import Bicishare.persistencia.*;
 import Bicishare.persistencia.entity.*;
+import jdk.nashorn.internal.parser.JSONParser;
+
 import java.util.List;
 import java.util.ArrayList;
 import javax.ejb.EJB;
@@ -157,5 +159,29 @@ public class PagoLogica {
 		}
 		return dtos;
 	}
+	
+	public List<BancoDTO> listaBancos(){
+		JSONParser parser = new JSONParser();
+		
+		Object obj = parser.parse(new FileReader("../../../data/Bank_data.json"));
+		
+	}
+	
+	/*
+	public PagoDTO convertirEntidad(Pago entidad) {
+		PagoDTO dto = new PagoDTO();
+		dto.setId(entidad.getId());
+		dto.setMedioPago(entidad.getMedioPago());
+		dto.setValor(entidad.getValor());
 
+		if (entidad.getPrestamo() != null) {
+			dto.setPrestamo(new PrestamoDTO(entidad.getPrestamo().getId()));
+		}
+		if (entidad.getMedioDePagoUso() != null) {
+			dto.setMedioDePagoUso(new MedioDePagoUsoDTO(entidad.getMedioDePagoUso().getId()));
+		}
+
+		return dto;
+	}
+	*/
 }

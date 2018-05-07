@@ -1,0 +1,83 @@
+
+
+<div class="panel panel-primary" ng-hide="panelEditar">
+	<div class="panel-heading">Parametrizaci&oacute;n de Multa</div>
+	<div class="panel-body">
+		<div class="btn-group">
+			<button type="button" class="btn btn-default" ng-click="nuevo()">Nuevo
+				Multa</button>
+		</div>
+		<table class="resultados table table-striped">
+			<tr>
+				<th>valor</th>
+				<th>fecha</th>
+				<th>prestamo</th>
+				<th><input class="form-control" ng-model="q"
+					placeholder="Buscar" /></th>
+			</tr>
+			<tr dir-paginate="row in lista|filter: q|itemsPerPage:10">
+				<td>{{row.valor}}</td>
+				<td>{{row.fecha| date: 'dd/MM/yyyy'}}</td>
+				<td class="row">{{row.prestamo.nombre}}</td>
+				<td class="row">
+					<button type="button" class="btn btn-default"
+						ng-click="editar(row)">
+						<span class="glyphicon glyphicon-pencil"></span>Editar
+					</button>
+					<button type="button" class="btn btn-default"
+						ng-click="eliminar(row)">
+						<span class="glyphicon glyphicon-remove"></span>Eliminar
+					</button>
+				</td>
+			</tr>
+		</table>
+		<div dir-pagination-controls></div>
+		<br />
+	</div>
+</div>
+
+<div class="panel panel-primary" ng-show="panelEditar">
+	<div class="panel-heading">Parametrizaci&oacute;n de Multa</div>
+	<div class="panel-body">
+
+		<div class="form-group col-md-6" ng-class="errores.valor?'error':''">
+			<label for="valor">valor</label> <input id="valor"
+				class="form-control" type="text" ng-model="datosFormulario.valor"
+				placeholder="valor" />
+			<div ng-show="errores.valor">{{errores.valor}}</div>
+		</div>
+		<div class="form-group col-md-6" ng-class="errores.fecha?'error':''">
+			<label for="fecha">fecha</label>
+			<div class="input-group">
+				<input id="fecha" class="form-control datepicker" type="text"
+					ng-model="datosFormulario.fecha" /> <span class="input-group-addon"><span
+					class="glyphicon glyphicon-calendar"></span></span>
+			</div>
+			<script>
+				$('#fecha').datepicker({
+					format : 'dd/mm/yyyy',
+					language : "es"
+				}).on('changeDate', function(ev) {
+					dp_fecha.hide();
+				}).data('datepicker');
+			</script>
+			<div ng-show="errores.fecha">{{errores.fecha}}</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-md-6"
+				ng-class="errores.prestamo?'error':''">
+				<label>prestamo</label> <select id="prestamo" class="form-control"
+					ng-model="datosFormulario.prestamo"
+					ng-options="option.nombre for option in listaPrestamo track by option.id">
+				</select>
+				<div ng-show="errores.prestamo">{{errores.prestamo}}</div>
+			</div>
+		</div>
+
+		<div class="btn-group">
+			<button type="button" class="btn btn-default" ng-click="guardar()">Aceptar</button>
+			<button type="button" class="btn btn-default" ng-click="cancelar()">Cancelar</button>
+		</div>
+	</div>
+</div>
+

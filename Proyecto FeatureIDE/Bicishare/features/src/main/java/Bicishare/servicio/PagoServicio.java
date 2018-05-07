@@ -45,6 +45,13 @@ public class PagoServicio {
 		return logica.obtener(id);
 	}
 
+	@GET
+	@Path("/bancos")
+	public List<BancoDTO> obtenerBancos() {
+		logica.listaBancos();
+		List<BancoDTO> lista = new List<BancoDTO>();
+		return lista;
+	}
 	/**
 	 * almacena la informacion de Pago
 	 * 
