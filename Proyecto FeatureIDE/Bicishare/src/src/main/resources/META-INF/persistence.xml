@@ -3,6 +3,7 @@
   <persistence-unit name="model_model_war_1.0PU" transaction-type="JTA">
     <jta-data-source>java:app/bicishare</jta-data-source>
     <class>Bicishare.persistencia.entity.Accesorio</class>
+    <class>Bicishare.persistencia.entity.Banco</class>
     <class>Bicishare.persistencia.entity.Bicicleta</class>
     <class>Bicishare.persistencia.entity.Biciusuario</class>
     <class>Bicishare.persistencia.entity.Bonificacion</class>
