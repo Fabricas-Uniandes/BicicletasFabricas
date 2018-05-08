@@ -1,5 +1,4 @@
 package Bicishare.logica;
-
 import Bicishare.dto.*;
 import Bicishare.persistencia.*;
 import Bicishare.persistencia.entity.*;
@@ -7,8 +6,12 @@ import java.util.List;
 import java.util.ArrayList;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+
+import com.sun.org.apache.xml.internal.dtm.DTMDOMException;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * @generated
@@ -53,7 +56,13 @@ public class PrestamoLogica {
 	 * @generated
 	 */
 	public PrestamoDTO guardar(PrestamoDTO dto) {
-		return convertirEntidad(persistencia.guardar(convertirDTO(dto)));
+		
+		if(ValidarDto(dto)) {
+			return convertirEntidad(persistencia.guardar(convertirDTO(dto)));
+		}
+		
+		//throw new Exception("El prestamo no es valido");
+		return dto;
 	}
 
 	/**
@@ -75,7 +84,17 @@ public class PrestamoLogica {
 	 * @generated
 	 */
 	public void actualizar(PrestamoDTO dto) {
-		persistencia.actualizar(convertirDTO(dto));
+		
+		if(ValidarDto(dto)) {
+			
+			if(ValidarSiMultar(dto)) {
+				Multar(dto);
+			}
+			
+			persistencia.actualizar(convertirDTO(dto));
+		}
+		
+		//throw new Exception("El prestamo no es valido");
 	}
 
 	/**
@@ -185,4 +204,18 @@ public class PrestamoLogica {
 		return dtos;
 	}
 
+	private boolean ValidarDto(PrestamoDTO dto) {
+		return true;
+	}
+	
+	private boolean ValidarSiMultar(PrestamoDTO dto) {
+		return false;
+	}
+	
+	private void Multar(PrestamoDTO dto) {
+		MultaDTO multa = new MultaDTO();
+        multa.setFecha(new Date().toString());
+        multa.setValor(10000);
+        dto.setMulta(multa);
+	}	
 }
