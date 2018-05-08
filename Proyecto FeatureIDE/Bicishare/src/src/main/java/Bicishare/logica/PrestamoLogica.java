@@ -13,6 +13,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import java.text.DateFormat;
+
 /**
  * @generated
  * @author eaperador
@@ -209,7 +211,14 @@ public class PrestamoLogica {
 	}
 	
 	private boolean ValidarSiMultar(PrestamoDTO dto) {
-		return false;
+		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        
+		try {
+			return dateFormat.parse(dto.getFechaFin()).before(dateFormat.parse(dto.getFechaRealDevolucion()));
+		}
+		catch(ParseException e){
+			return false;
+		}
 	}
 	
 	private void Multar(PrestamoDTO dto) {
