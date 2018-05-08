@@ -1,12 +1,23 @@
+
 package Bicishare.logica;
 
 import Bicishare.dto.*;
 import Bicishare.persistencia.*;
 import Bicishare.persistencia.entity.*;
+/*import jdk.nashorn.internal.parser.JSONParser;*/
+
+import java.io.FileReader;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+
 import java.util.List;
 import java.util.ArrayList;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import java.io.FileNotFoundException;
 
 /**
  * @generated
@@ -157,5 +168,7 @@ public class PagoLogica {
 		}
 		return dtos;
 	}
-
+	
+	
 }
+
