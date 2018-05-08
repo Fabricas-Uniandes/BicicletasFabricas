@@ -9,9 +9,6 @@
 		<feature automatic="selected" name="Bicicletas"/>
 		<feature automatic="selected" name="Retirar Bicicleta"/>
 		<feature automatic="selected" name="Entregar Bicicleta"/>
-		<feature manual="selected" name="Accesorios"/>
-		<feature automatic="selected" name="Retirar Accesorio"/>
-		<feature automatic="selected" name="Entregar Accesorio"/>
 		<feature manual="selected" name="Bonificaciones"/>
 		<feature automatic="selected" name="Ver Catalogo"/>
 		<feature automatic="selected" name="Seleccionar Premios"/>
