@@ -1,9 +1,9 @@
+
 package Bicishare.logica;
 
 import Bicishare.dto.*;
 import Bicishare.persistencia.*;
 import Bicishare.persistencia.entity.*;
-import java.io.File;
 /*import jdk.nashorn.internal.parser.JSONParser;*/
 
 import java.io.FileReader;
@@ -18,9 +18,6 @@ import java.util.ArrayList;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import java.io.FileNotFoundException;
-import java.io.IOException;
-
-import java.util.Scanner;
 
 /**
  * @generated
@@ -172,46 +169,6 @@ public class PagoLogica {
 		return dtos;
 	}
 	
-	public JSONObject listaBancos(){
-		JSONParser parser = new JSONParser();
-		
-		JSONObject jsonObject = new JSONObject();
-		try {
-                        StringBuilder result = new StringBuilder("");
-                        ClassLoader classLoader = getClass().getClassLoader();
-                        File file = new File(classLoader.getResource("file/Bank_data.json").getFile());
-                        
-                        Scanner scanner = new Scanner(file);
-
-                        while (scanner.hasNextLine()) {
-                                String line = scanner.nextLine();
-                                result.append(line).append("\n");
-                        }
-
-                        scanner.close();
-
-                        Object obj = parser.parse(result.toString());
-                        jsonObject  = (JSONObject)obj;
-                    }
-		catch(FileNotFoundException | ParseException e) { e.printStackTrace();}
-		return jsonObject;
-	}
 	
-	/*
-	public PagoDTO convertirEntidad(Pago entidad) {
-		PagoDTO dto = new PagoDTO();
-		dto.setId(entidad.getId());
-		dto.setMedioPago(entidad.getMedioPago());
-		dto.setValor(entidad.getValor());
-
-		if (entidad.getPrestamo() != null) {
-			dto.setPrestamo(new PrestamoDTO(entidad.getPrestamo().getId()));
-		}
-		if (entidad.getMedioDePagoUso() != null) {
-			dto.setMedioDePagoUso(new MedioDePagoUsoDTO(entidad.getMedioDePagoUso().getId()));
-		}
-
-		return dto;
-	}
-	*/
 }
+

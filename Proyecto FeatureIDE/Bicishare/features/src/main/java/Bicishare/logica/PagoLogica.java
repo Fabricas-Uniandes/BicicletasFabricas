@@ -1,3 +1,4 @@
+
 package Bicishare.logica;
 
 import Bicishare.dto.*;
@@ -24,7 +25,7 @@ import java.io.FileNotFoundException;
  */
 @Stateless
 public class PagoLogica {
-
+/*if[Pago]*/
 	@EJB
 	private PagoDAO persistencia;
 
@@ -168,36 +169,6 @@ public class PagoLogica {
 		return dtos;
 	}
 	
-	public JSONObject listaBancos(){
-		JSONParser parser = new JSONParser();
-		
-		JSONObject jsonObject = new JSONObject();
-		try {
-			Object obj = parser.parse(new FileReader("../../../data/Bank_data.json"));
-			jsonObject  = (JSONObject)obj;
-		}
-		
-		catch(FileNotFoundException e) { e.printStackTrace(); }
-		catch(ParseException e) { e.printStackTrace(); }
-		catch(Exception e) { e.printStackTrace(); }
-		return jsonObject;
-	}
-	
-	/*
-	public PagoDTO convertirEntidad(Pago entidad) {
-		PagoDTO dto = new PagoDTO();
-		dto.setId(entidad.getId());
-		dto.setMedioPago(entidad.getMedioPago());
-		dto.setValor(entidad.getValor());
-
-		if (entidad.getPrestamo() != null) {
-			dto.setPrestamo(new PrestamoDTO(entidad.getPrestamo().getId()));
-		}
-		if (entidad.getMedioDePagoUso() != null) {
-			dto.setMedioDePagoUso(new MedioDePagoUsoDTO(entidad.getMedioDePagoUso().getId()));
-		}
-
-		return dto;
-	}
-	*/
+	/*end[Pago]*/
 }
+
