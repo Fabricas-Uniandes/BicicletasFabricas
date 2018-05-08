@@ -20,6 +20,7 @@
     <class>Bicishare.persistencia.entity.Proveedor</class>
     <class>Bicishare.persistencia.entity.TarjetaCredito</class>
     <class>Bicishare.persistencia.entity.Usuario</class>
+    <class>Bicishare.persistencia.entity.LogroCliente</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
       <property name="hibernate.hbm2ddl.auto" value="update"/>

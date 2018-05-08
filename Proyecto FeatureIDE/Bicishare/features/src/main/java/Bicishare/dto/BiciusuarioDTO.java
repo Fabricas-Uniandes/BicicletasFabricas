@@ -95,16 +95,16 @@ public class BiciusuarioDTO extends UsuarioDTO {
 	/**
 	 * @generated
 	 */
-	private List<LogroDTO> logro;
+	private List<LogroClienteDTO> logro;
 
-	public List<LogroDTO> getLogro() {
+	public List<LogroClienteDTO> getLogro() {
 		if (this.logro == null) {
-			logro = new ArrayList<LogroDTO>();
+			logro = new ArrayList<LogroClienteDTO>();
 		}
 		return logro;
 	}
 
-	public void setLogro(List<LogroDTO> logro) {
+	public void setLogro(List<LogroClienteDTO> logro) {
 		this.logro = logro;
 	}
 
