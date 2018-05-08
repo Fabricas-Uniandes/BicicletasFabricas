@@ -49,4 +49,17 @@ public class BancoDTO {
 		this.nombre = nombre;
 	}
 
+	private List<PagoDTO> pago;
+
+	public List<PagoDTO> getPago() {
+		if (this.pago == null) {
+			pago = new ArrayList<PagoDTO>();
+		}
+		return pago;
+	}
+
+	public void setPago(List<PagoDTO> pago) {
+		this.pago = pago;
+	}
+
 }

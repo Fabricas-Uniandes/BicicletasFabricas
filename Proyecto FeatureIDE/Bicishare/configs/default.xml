@@ -14,6 +14,7 @@
 		<feature automatic="selected" name="Entregar Accesorio"/>
 		<feature automatic="selected" manual="selected" name="Pago"/>
 		<feature manual="selected" name="Efectivo"/>
+		<feature manual="selected" name="Tarjeta de Credito"/>
 		<feature automatic="selected" name="Multas"/>
 		<feature automatic="selected" name="Registrar"/>
 		<feature automatic="selected" name="Consultar"/>

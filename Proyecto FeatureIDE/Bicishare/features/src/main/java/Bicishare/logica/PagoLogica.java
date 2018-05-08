@@ -28,6 +28,9 @@ public class PagoLogica {
 /*if[Pago]*/
 	@EJB
 	private PagoDAO persistencia;
+	
+	@EJB
+	private BancoDAO persistenciaBanco;
 
 	/**
 	 * Retorna una lista con los Pago que se encuentran en la base de datos
@@ -167,6 +170,26 @@ public class PagoLogica {
 			dtos.add(convertirEntidad(entidad));
 		}
 		return dtos;
+	}
+	
+	public BancoDTO convertirEntidadBanco(Banco entidad) {
+		BancoDTO dto = new BancoDTO();
+		dto.setId(entidad.getId());
+		dto.setNombre(entidad.getNombre());
+		
+		return dto;
+	}
+	
+	public List<BancoDTO> convertirEntidadBanco(List<Banco> entidades) {
+		List<BancoDTO> dtos = new ArrayList<BancoDTO>();
+		for (Banco entidad : entidades) {
+			dtos.add(convertirEntidadBanco(entidad));
+		}
+		return dtos;
+	}
+	
+	public List<BancoDTO> listaBancos() {
+		return convertirEntidadBanco(persistenciaBanco.obtenerTodos());
 	}
 	
 	/*end[Pago]*/
