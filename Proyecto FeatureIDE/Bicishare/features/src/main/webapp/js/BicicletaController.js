@@ -1,6 +1,6 @@
 'use strict';
 
-module.controller('BicicletaCtrl', ['$scope', '$filter', '$http', '$location', '$window' function ($scope, $filter, $http, $location, $window) {
+module.controller('BicicletaCtrl', ['$scope', '$filter', '$http', '$window', function ($scope, $filter, $http, $window) {
     // listar
     $scope.lista = [];
     $scope.datosFormulario = {};
@@ -89,6 +89,6 @@ module.controller('BicicletaCtrl', ['$scope', '$filter', '$http', '$location', '
     //Redireccionar pago Seleccionar
     $scope.seleccionar = function (data) {
         $window.location.href = '/src/Pago';
-        //$location.path('./partials/Pago');
+        
     };
 }]);
