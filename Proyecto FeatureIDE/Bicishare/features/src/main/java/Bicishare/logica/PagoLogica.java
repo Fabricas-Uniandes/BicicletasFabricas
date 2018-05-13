@@ -1,12 +1,23 @@
+
 package Bicishare.logica;
 
 import Bicishare.dto.*;
 import Bicishare.persistencia.*;
 import Bicishare.persistencia.entity.*;
+/*import jdk.nashorn.internal.parser.JSONParser;*/
+
+import java.io.FileReader;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+
 import java.util.List;
 import java.util.ArrayList;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import java.io.FileNotFoundException;
 
 /**
  * @generated
@@ -14,9 +25,12 @@ import javax.ejb.Stateless;
  */
 @Stateless
 public class PagoLogica {
-
+/*if[Pago]*/
 	@EJB
 	private PagoDAO persistencia;
+	
+	@EJB
+	private BancoDAO persistenciaBanco;
 
 	/**
 	 * Retorna una lista con los Pago que se encuentran en la base de datos
@@ -157,5 +171,27 @@ public class PagoLogica {
 		}
 		return dtos;
 	}
-
+	
+	public BancoDTO convertirEntidadBanco(Banco entidad) {
+		BancoDTO dto = new BancoDTO();
+		dto.setId(entidad.getId());
+		dto.setNombre(entidad.getNombre());
+		
+		return dto;
+	}
+	
+	public List<BancoDTO> convertirEntidadBanco(List<Banco> entidades) {
+		List<BancoDTO> dtos = new ArrayList<BancoDTO>();
+		for (Banco entidad : entidades) {
+			dtos.add(convertirEntidadBanco(entidad));
+		}
+		return dtos;
+	}
+	
+	public List<BancoDTO> listaBancos() {
+		return convertirEntidadBanco(persistenciaBanco.obtenerTodos());
+	}
+	
+	/*end[Pago]*/
 }
+

@@ -1,17 +1,23 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Bicishare.persistencia;
 
-import Bicishare.persistencia.entity.*;
+import Bicishare.persistencia.entity.Logro;
 import java.util.List;
-import javax.persistence.*;
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 /**
- * @generated
- * @author eaperador
+ *
+ * @author Efrai
  */
 @Stateless
 public class LogroDAO {
-
+  
 	@PersistenceContext
 	private EntityManager em;
 
@@ -71,5 +77,4 @@ public class LogroDAO {
 	public void actualizar(Logro entidad) {
 		em.merge(entidad);
 	}
-
 }

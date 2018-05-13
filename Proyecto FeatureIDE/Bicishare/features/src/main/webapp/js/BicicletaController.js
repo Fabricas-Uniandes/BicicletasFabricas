@@ -1,6 +1,6 @@
 'use strict';
 
-module.controller('BicicletaCtrl', ['$scope', '$filter', '$http', function ($scope, $filter, $http) {
+module.controller('BicicletaCtrl', ['$scope', '$filter', '$http', '$window', function ($scope, $filter, $http, $window) {
     // listar
     $scope.lista = [];
     $scope.datosFormulario = {};
@@ -85,5 +85,10 @@ module.controller('BicicletaCtrl', ['$scope', '$filter', '$http', function ($sco
                     alert('Error al eliminar la informaci\xf3n de Bicicleta, por favor intente m\xe1s tarde');
             });   
         }
+    };
+    //Redireccionar pago Seleccionar
+    $scope.seleccionar = function (data) {
+        $window.location.href = '/src/Pago';
+        
     };
 }]);

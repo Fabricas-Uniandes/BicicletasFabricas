@@ -3,7 +3,6 @@ package Bicishare.servicio;
 import Bicishare.dto.*;
 import Bicishare.logica.*;
 import java.util.List;
-import java.util.ArrayList;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.ws.rs.*;
@@ -18,63 +17,38 @@ import javax.ws.rs.core.*;
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class LogroServicio {
-	/*IF[Gamification]*/
-	
-	@EJB
-	private LogroLogica logica;
 
-	/**
-	 * retorna una lista con los Logro que se encuentran en la base de datos
-	 * 
-	 * @return retorna una lista de LogroDTO
-	 * @generated
-	 */
-	@GET
-	public List<LogroDTO> obtenerTodosLogros() {
-		return logica.obtenerTodos();
-	}
+  /*if[Gamification]*/
 
-	/**
-	 * @param id
-	 *            identificador del elemento Logro
-	 * @return Logro del id dado
-	 * @generated
-	 */
-	@GET
-	@Path("/{id}")
-	public LogroDTO obtenerLogro(@PathParam("id") Long id) {
-		return logica.obtener(id);
-	}
+  @EJB
+  private LogroLogica logica;
 
-	/**
-	 * almacena la informacion de Logro
-	 * 
-	 * @param dto
-	 *            Logro a guardar
-	 * @return Logro con los cambios realizados por el proceso de guardar
-	 * @generated
-	 */
-	@POST
-	public LogroDTO guardarLogro(LogroDTO dto) {
-		if (dto.getId() != null) {
-			logica.actualizar(dto);
-			return dto;
-		} else {
-			return logica.guardar(dto);
-		}
-	}
+  /**
+   * retorna una lista con los Logro que se encuentran en la base de datos
+   *
+   * @return retorna una lista de LogroDTO
+   * @generated
+   */
+  @GET
+  public List<LogroClienteDTO> obtenerTodosLogros() {
+    return logica.obtenerTodos();
+  }
 
-	/**
-	 * elimina el registro Logro con el identificador dado
-	 * 
-	 * @param id
-	 *            identificador del Logro
-	 * @generated
-	 */
-	@DELETE
-	@Path("/{id}")
-	public void borrarLogro(@PathParam("id") Long id) {
-		logica.borrar(id);
-	}
-	/*IF[Gamification]*/
+  /**
+   * @param id identificador del elemento Logro
+   * @return Logro del id dado
+   * @generated
+   */
+  @GET
+  @Path("/{id}")
+  public LogroClienteDTO obtenerLogro(@PathParam("id") Long id) {
+    return logica.obtener(id);
+  }
+
+  @GET
+  @Path("/usuario/{id}")
+  public List<LogroClienteDTO> obtenerLogroPorUsuario(@PathParam("id") Long id) {
+    return logica.obtenerTodosPorUsuario(id);
+  }
+  /*end[Gamification]*/
 }
