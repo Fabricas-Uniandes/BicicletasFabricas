@@ -23,6 +23,9 @@ module.controller('PrestamoCtrl', ['$scope', '$filter', '$http', function ($scop
             });    
         };
         $scope.listarAccesorios();
+        
+        /*if[Pago]*/
+        
             $scope.listarPago=function(){
             $http.get('./webresources/Pago', {})
                 .success(function (data, status, headers, config) {
@@ -32,6 +35,9 @@ module.controller('PrestamoCtrl', ['$scope', '$filter', '$http', function ($scop
             });    
         };
         $scope.listarPago();
+        
+        /*end[Pago]*/
+        
             $scope.listarBiciusuario=function(){
             $http.get('./webresources/Biciusuario', {})
                 .success(function (data, status, headers, config) {
