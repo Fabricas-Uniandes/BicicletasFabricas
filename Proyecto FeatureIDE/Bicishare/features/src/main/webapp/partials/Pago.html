@@ -1,85 +1,54 @@
 
 
 <div class="panel panel-primary" ng-hide="panelEditar">
-	<div class="panel-heading">Parametrizaci&oacute;n de Pago</div>
 	<div class="panel-body">
-		<div class="btn-group">
-			<button type="button" class="btn btn-default" ng-click="nuevo()">Nuevo
-				Pago</button>
-		</div>
-		<table class="resultados table table-striped">
-			<tr>
-				<th>medioPago</th>
-				<th>Valor</th>
-				<th>prestamo</th>
-				<th>MedioDePagoUso</th>
-				<th><input class="form-control" ng-model="q"
-					placeholder="Buscar" /></th>
-			</tr>
-			<tr dir-paginate="row in lista|filter: q|itemsPerPage:10">
-				<td>{{row.medioPago}}</td>
-				<td>{{row.Valor}}</td>
-				<td class="row">{{row.MedioDePagoUso.nombre}}</td>
-				<td class="row">{{row.prestamo.nombre}}</td>
-				<td class="row">
-					<button type="button" class="btn btn-default"
-						ng-click="editar(row)">
-						<span class="glyphicon glyphicon-pencil"></span>Editar
-					</button>
-					<button type="button" class="btn btn-default"
-						ng-click="eliminar(row)">
-						<span class="glyphicon glyphicon-remove"></span>Eliminar
-					</button>
-				</td>
-			</tr>
-		</table>
-		<div dir-pagination-controls></div>
-		<br />
-	</div>
-</div>
-
-<div class="panel panel-primary" ng-show="panelEditar">
-	<div class="panel-heading">Parametrizaci&oacute;n de Pago</div>
-	<div class="panel-body">
-
-		<div class="form-group col-md-6"
-			ng-class="errores.medioPago?'error':''">
-			<label for="medioPago">medioPago</label> <input id="medioPago"
-				class="form-control" type="text"
-				ng-model="datosFormulario.medioPago" placeholder="medioPago" />
-			<div ng-show="errores.medioPago">{{errores.medioPago}}</div>
-		</div>
-		<div class="form-group col-md-6" ng-class="errores.Valor?'error':''">
-			<label for="Valor">Valor</label> <input id="Valor"
-				class="form-control" type="text" ng-model="datosFormulario.Valor"
-				placeholder="Valor" />
-			<div ng-show="errores.Valor">{{errores.Valor}}</div>
-		</div>
-		<div class="row">
-			<div class="form-group col-md-6"
-				ng-class="errores.MedioDePagoUso?'error':''">
-				<label>MedioDePagoUso</label> <select id="MedioDePagoUso"
-					class="form-control" ng-model="datosFormulario.MedioDePagoUso"
-					ng-options="option.nombre for option in listaMedioDePagoUso track by option.id">
-				</select>
-				<div ng-show="errores.MedioDePagoUso">{{errores.MedioDePagoUso}}</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="form-group col-md-6"
-				ng-class="errores.prestamo?'error':''">
-				<label>prestamo</label> <select id="prestamo" class="form-control"
-					ng-model="datosFormulario.prestamo"
-					ng-options="option.nombre for option in listaPrestamo track by option.id">
-				</select>
-				<div ng-show="errores.prestamo">{{errores.prestamo}}</div>
-			</div>
-		</div>
-
-		<div class="btn-group">
-			<button type="button" class="btn btn-default" ng-click="guardar()">Aceptar</button>
-			<button type="button" class="btn btn-default" ng-click="cancelar()">Cancelar</button>
-		</div>
+		<table class="resultados table table-striped" ng-model="bike">
+                <tr>
+                        <th>Bicicleta</th>
+                        <th>Valor</th>
+                        <th>Dias</th>
+                        <th>Imagen</th>
+                </tr>
+                <tr>
+                        <td>{{serial}}</td>
+                        <td>{{precioAlquiler}}</td>
+                        <td><select> 
+                                <option ng-repeat="n in _.range(10)">{{n}}</option>
+                            </select> </td>
+                        <td>{{foto}}</td>
+                </tr>
+            </table>
+            <br> 
+            <div>
+                <table>
+                    <tr style="height:30px">
+                        <td>
+                            <input type="radio" ng-click="showPSE" name="typePayment" value="pse" >  PSE<br>
+                        </td>
+                    </tr>
+                    <tr>
+                    <br>
+                    <br>
+                    <table>
+                        <tr style="height:30px">
+                            <td>
+                                Banco: <select>
+                                    <option ng-repeat="banco in listaBancos">{{banco.nombre}}</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr><td></td></tr>
+                        <tr style="height:30px">
+                            <td>
+                                <button type="button" class="btn btn-default" ng-click="continuarPSE()">
+                                Continuar</button>
+                            </td>
+                        </tr>
+                    </table>
+                    </tr>
+                </table>
+                
+            </div>
 	</div>
 </div>
 
