@@ -4,7 +4,7 @@ module.controller('PagoCtrl', ['$scope', '$filter', '$http', function ($scope, $
     //listar
     $scope.lista = [];
     $scope.listaBancos = [];
-    $scope.bike = [];
+    $scope.bike;
     $scope.datosFormulario = {};
     $scope.panelEditar = false;
     $scope.listar=function(){
@@ -38,6 +38,7 @@ module.controller('PagoCtrl', ['$scope', '$filter', '$http', function ($scope, $
     $scope.listar();
     $scope.listarBancos();
     $scope.getBike();
+    $scope.rangeDays = _.range(1, 11);
     //guardar
     $scope.nuevo = function () {
         $scope.panelEditar = true;

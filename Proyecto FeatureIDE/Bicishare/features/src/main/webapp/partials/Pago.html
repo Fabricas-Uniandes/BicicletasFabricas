@@ -2,20 +2,20 @@
 
 <div class="panel panel-primary" ng-hide="panelEditar">
 	<div class="panel-body">
-		<table class="resultados table table-striped" ng-model="bike">
+		<table class="resultados table table-striped">
                 <tr>
                         <th>Bicicleta</th>
                         <th>Valor</th>
                         <th>Dias</th>
                         <th>Imagen</th>
                 </tr>
-                <tr>
-                        <td>{{serial}}</td>
-                        <td>{{precioAlquiler}}</td>
+                <tr ng-model="bike">
+                        <td>{{bike.serial}}</td>
+                        <td>{{bike.precioAlquiler}}</td>
                         <td><select> 
-                                <option ng-repeat="n in _.range(10)">{{n}}</option>
+                                <option ng-repeat="n in rangeDays">{{n}}</option>
                             </select> </td>
-                        <td>{{foto}}</td>
+                        <td>{{bike.foto}}</td>
                 </tr>
             </table>
             <br> 
