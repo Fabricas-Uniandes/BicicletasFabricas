@@ -5,6 +5,7 @@ module.controller('PagoCtrl', ['$scope', '$filter', '$http', function ($scope, $
     $scope.lista = [];
     $scope.listaBancos = [];
     $scope.bike;
+    $scope.valTotal;
     $scope.datosFormulario = {};
     $scope.panelEditar = false;
     $scope.listar=function(){
@@ -39,6 +40,15 @@ module.controller('PagoCtrl', ['$scope', '$filter', '$http', function ($scope, $
     $scope.listarBancos();
     $scope.getBike();
     $scope.rangeDays = _.range(1, 11);
+    
+    $scope.calcTotal = function(data){
+        if($scope.valTotal != undefined && $scope.bike != undefined){
+            $scope.valTotal = $scope.bike.precioAlquiler * data;
+        }
+        else
+            $scope.valTotal = 0;
+    }
+    $scope.calcTotal();
     //guardar
     $scope.nuevo = function () {
         $scope.panelEditar = true;

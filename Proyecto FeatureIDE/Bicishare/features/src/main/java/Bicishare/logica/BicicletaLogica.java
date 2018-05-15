@@ -87,6 +87,7 @@ public class BicicletaLogica {
 			return null;
 		Bicicleta entidad = new Bicicleta();
 		entidad.setId(dto.getId());
+		entidad.setReferencia(dto.getReferencia());
 		entidad.setSerial(dto.getSerial());
 		entidad.setPrecio(dto.getPrecio());
 		entidad.setPrecioAlquiler(dto.getPrecioAlquiler());
@@ -131,6 +132,7 @@ public class BicicletaLogica {
 	public BicicletaDTO convertirEntidad(Bicicleta entidad) {
 		BicicletaDTO dto = new BicicletaDTO();
 		dto.setId(entidad.getId());
+		dto.setReferencia(entidad.getReferencia());
 		dto.setSerial(entidad.getSerial());
 		dto.setPrecio(entidad.getPrecio());
 		dto.setPrecioAlquiler(entidad.getPrecioAlquiler());

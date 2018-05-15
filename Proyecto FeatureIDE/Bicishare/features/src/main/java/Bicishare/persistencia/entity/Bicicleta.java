@@ -30,6 +30,9 @@ public class Bicicleta {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
+	// @Column(name = "referencia")
+	private String referencia;
 
 	/**
 	 * @generated 1-1-false
@@ -77,6 +80,13 @@ public class Bicicleta {
 	@ManyToOne(cascade = {}, fetch = FetchType.EAGER)
 	private Marca marca;
 
+	public String getReferencia() {
+		return this.referencia;
+	}
+	
+	public void setReferencia(String referencia) {
+		this.referencia = referencia;
+	}
 	/**
 	 * @generated
 	 */

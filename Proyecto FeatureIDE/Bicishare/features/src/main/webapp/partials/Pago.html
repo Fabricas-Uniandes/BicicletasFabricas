@@ -10,12 +10,19 @@
                         <th>Imagen</th>
                 </tr>
                 <tr ng-model="bike">
-                        <td>{{bike.serial}}</td>
-                        <td>{{bike.precioAlquiler}}</td>
-                        <td><select> 
-                                <option ng-repeat="n in rangeDays">{{n}}</option>
-                            </select> </td>
-                        <td>{{bike.foto}}</td>
+                        <td>{{bike.referencia}}</td>
+                        <td>{{bike.precioAlquiler | currency }}</td>
+                        <td><select ng-model="range" ng-change="calcTotal(range)"> 
+                                <option ng-repeat="n in rangeDays" value="{{n}}">{{n}}</option>
+                            </select> 
+                        </td>
+                        <td><img ng-src="{{bike.foto}}" alt="Bike Image"/></td>
+                </tr>
+                <tr style="text-align: right">
+                    <td style="font-weight: bold" colspan="3">
+                        Total:
+                    </td>
+                    <td>{{valTotal | currency}}</td>
                 </tr>
             </table>
             <br> 
@@ -23,13 +30,13 @@
                 <table>
                     <tr style="height:30px">
                         <td>
-                            <input type="radio" ng-click="showPSE" name="typePayment" value="pse" >  PSE<br>
+                            <input type="radio" ng-model="typePayment" name="typePayment" value="pse" >  PSE<br>
                         </td>
                     </tr>
                     <tr>
                     <br>
                     <br>
-                    <table>
+                    <table ng-show="typePayment == 'pse'">
                         <tr style="height:30px">
                             <td>
                                 Banco: <select>
