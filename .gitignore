@@ -29,6 +29,7 @@ target/
 /Proyecto FeatureIDE/Bicishare/src/target
 /Proyecto FeatureIDE/Bicishare/features/src/main/java/Bicishare/dto/LogroClienteDTO.java
 /Proyecto FeatureIDE/Bicishare/features/src/main/java/Bicishare/persistencia/entity/Accesorio.java
+/Proyecto FeatureIDE/Bicishare/features/src/main/java/Bicishare/persistencia/entity/Bicicleta.java
 /Proyecto FeatureIDE/Bicishare/features/src/main/java/Bicishare/persistencia/entity/Biciusuario.java
 /Proyecto FeatureIDE/Bicishare/features/src/main/java/Bicishare/persistencia/entity/Bonificacion.java
 /Proyecto FeatureIDE/Bicishare/features/src/main/java/Bicishare/persistencia/entity/BonificacionGanada.java

@@ -2,59 +2,133 @@
 
 <div class="panel panel-primary" ng-hide="panelEditar">
 	<div class="panel-body">
-		<table class="resultados table table-striped">
-                <tr>
-                        <th>Bicicleta</th>
-                        <th>Valor</th>
-                        <th>Dias</th>
-                        <th>Imagen</th>
-                </tr>
-                <tr ng-model="bike">
-                        <td>{{bike.referencia}}</td>
-                        <td>{{bike.precioAlquiler | currency }}</td>
-                        <td><select ng-model="range" ng-change="calcTotal(range)"> 
+            <div class="container table-striped">
+                <div class="row align-items-center" style="background-color: aqua">
+                    <div class="col-md-2">
+                        Bicicleta
+                    </div>
+                    <div class="col-md-2">
+                        Valor
+                    </div>
+                    <div class="col-md-2">
+                        Dias
+                    </div>
+                    <div class="col-md-6">
+                        Imagen
+                    </div>
+                </div>
+                <br>
+                <div class="row align-items-center" ng-model="bike">
+                    <div class="col-md-2">
+                        {{bike.referencia}}
+                    </div>
+                    <div class="col-md-2">
+                        {{bike.precioAlquiler | currency }}
+                    </div>
+                    <div class="col-md-2">
+                        <select ng-model="range" ng-change="calcTotal(range)">
                                 <option ng-repeat="n in rangeDays" value="{{n}}">{{n}}</option>
-                            </select> 
-                        </td>
-                        <td><img ng-src="{{bike.foto}}" alt="Bike Image"/></td>
-                </tr>
-                <tr style="text-align: right">
-                    <td style="font-weight: bold" colspan="3">
-                        Total:
-                    </td>
-                    <td>{{valTotal | currency}}</td>
-                </tr>
-            </table>
-            <br> 
-            <div>
-                <table>
-                    <tr style="height:30px">
-                        <td>
-                            <input type="radio" ng-model="typePayment" name="typePayment" value="pse" >  PSE<br>
-                        </td>
-                    </tr>
-                    <tr>
-                    <br>
-                    <br>
-                    <table ng-show="typePayment == 'pse'">
-                        <tr style="height:30px">
-                            <td>
-                                Banco: <select>
-                                    <option ng-repeat="banco in listaBancos">{{banco.nombre}}</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr><td></td></tr>
-                        <tr style="height:30px">
-                            <td>
-                                <button type="button" class="btn btn-default" ng-click="continuarPSE()">
-                                Continuar</button>
-                            </td>
-                        </tr>
-                    </table>
-                    </tr>
-                </table>
-                
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <img ng-src="{{bike.foto}}" alt="Bike Image"/>
+                    </div>
+                </div>
+                <div class="row align-items-right">
+                    <div class="col-md-2" style="font-size:bold">
+                        Valor Total:
+                    </div>
+                    <div class="col-md-1" style="font-size:bold">
+                        {{valTotal | currency}}
+                    </div>
+                </div>
+            </div>
+            
+            <br>
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <input type="radio" ng-model="typePayment" name="typePayment" value="pse" >  PSE<br>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="radio" ng-model="typePayment" name="typePayment" value="creditCard" >  Credit Card<br>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <table ng-show="typePayment == 'pse'">
+                            <tr style="height:30px">
+                                <td>
+                                    Banco: <select>
+                                        <option ng-repeat="banco in listaBancos">{{banco.nombre}}</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr><td></td></tr>
+                            <tr style="height:30px">
+                                <td>
+                                    <button type="button" class="btn btn-default" ng-click="continuarPSE()">
+                                    Continuar</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-6">
+                        
+                        <table ng-show="typePayment == 'creditCard'">
+                            <tr>
+                                <td>
+                                    <input type="radio" ng-model="typeCredit" name="typeCredit" value="mastercard" />
+                                    <img ng-src="https://www.2-spyware.com/news/wp-content/uploads/news/mastercard.png" />
+                                </td>
+                                <td>
+                                    <input type="radio" ng-model="typeCredit" name="typeCredit" value="visa" />
+                                    <img ng-src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQseU27bubG-pWz_TQWzmAShLzGXXQMHJw2UHsgH34QH2gwVMY8" />
+                                </td>
+                            </tr>
+                                <tr style="height:30px">
+                                    <td>
+                                        Banco:
+                                    </td>
+                                    <td>
+                                        <select>
+                                            <option ng-repeat="banco in listaBancos">{{banco.nombre}}</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Numero de Tarjeta
+                                    </td>
+                                    <td>
+                                        <input type="text" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Codigo de verificacion
+                                    </td>
+                                    <td>
+                                        <input type="text" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Vigencia
+                                    </td>
+                                    <td>
+                                        <input type="text" />
+                                    </td>
+                                </tr>
+                                <tr style="height:30px" class="align-items-center">
+                                    <td colspan="2">
+                                        <button type="button" class="btn btn-default" ng-click="continuarPSE()">
+                                        Pagar</button>
+                                    </td>
+                                </tr>
+                            </table>
+                    </div>
+                </div>
             </div>
 	</div>
 </div>
