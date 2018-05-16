@@ -85,11 +85,6 @@ public class PrestamoDTO {
 	/**
 	 * @generated
 	 */
-	private BiciusuarioDTO biciusuario;
-
-	/**
-	 * @generated
-	 */
 	private PagoDTO pago;
 
 	/**
@@ -146,22 +141,6 @@ public class PrestamoDTO {
 	 */
 	public void setMulta(MultaDTO multa) {
 		this.multa = multa;
-	}
-
-	/**
-	 * @return
-	 * @generated
-	 */
-	public BiciusuarioDTO getBiciusuario() {
-		return this.biciusuario;
-	}
-
-	/**
-	 * @param
-	 * @generated
-	 */
-	public void setBiciusuario(BiciusuarioDTO biciusuario) {
-		this.biciusuario = biciusuario;
 	}
 
 	/**
