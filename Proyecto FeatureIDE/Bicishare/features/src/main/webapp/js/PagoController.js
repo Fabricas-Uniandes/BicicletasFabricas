@@ -8,6 +8,8 @@ module.controller('PagoCtrl', ['$scope', '$filter', '$http', function ($scope, $
     $scope.valTotal;
     $scope.datosFormulario = {};
     $scope.panelEditar = false;
+    
+    /*
     $scope.listar=function(){
         $http.get('./webresources/Pago', {})
             .success(function (data, status, headers, config) {
@@ -16,7 +18,8 @@ module.controller('PagoCtrl', ['$scope', '$filter', '$http', function ($scope, $
                 alert('Error al consultar la informaci\xf3n, por favor intente m\xe1s tarde');
         });    
     };
-
+	*/
+    
     $scope.listarBancos=function(){
         $http.get('./webresources/Pago/bancos', {})
             .success(function (data, status, headers, config) {
@@ -36,7 +39,7 @@ module.controller('PagoCtrl', ['$scope', '$filter', '$http', function ($scope, $
     }
         
 
-    $scope.listar();
+    //$scope.listar();
     $scope.listarBancos();
     $scope.getBike();
     $scope.rangeDays = _.range(1, 11);
