@@ -1,0 +1,36 @@
+<main class="home-wrapper">
+  <div class="banner">
+    <button class="chevron chevron-left" ng-click="moveLeft()">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    <button class="chevron chevron-right" ng-click="moveRight()">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+    <ul style="transform: translateX(-{{currentPosition * 100}}vw)">
+      <li class="banner-img">
+        <img src="https://www.marchasyrutas.es/blog/wp-content/uploads/2015/11/Ciclismo-en-carretera-Blog-Ciclismo-Decathlon-1024x453.jpg">
+        <div class="banner-overlay">
+          <p>
+            Solicita tu prestamo hoy
+          </p>
+        </div>
+      </li>
+      <li class="banner-img">
+        <img src="http://revistaes.com/wp-content/uploads/2015/07/Ciclistas.jpg">
+        <div class="banner-overlay">
+          <p>
+            Invita a tus amigos
+          </p>
+        </div>
+      </li>
+      <li class="banner-img">
+        <img src="http://labicikleta-klwlpeerjtyso.stackpathdns.com/wp-content/uploads/2017/09/GruposCiclistasCDMX-759x500.jpg">
+        <div class="banner-overlay">
+          <p>
+            Unete a nuestra comunidad
+          </p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</main>
