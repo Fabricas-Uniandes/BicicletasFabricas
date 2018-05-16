@@ -88,7 +88,11 @@ module.controller('BicicletaCtrl', ['$scope', '$filter', '$http', '$window', fun
     };
     //Redireccionar pago Seleccionar
     $scope.seleccionar = function (data) {
-        $window.location.href = '/src/#/Pago';
+    /*if[Pago]*/
+        $window.location.href = '/src/Pago/' + data.id;
+    /*else[Pago]*/
+    	$window.location.href = '/src/Prestamo/' + data.id;
+	/*end[Pago]*/
         
     };
 }]);
