@@ -14,9 +14,9 @@ app.config(['$routeProvider', function($routeProvider) {
 	$routeProvider.when('/MedioDePagoUso', {templateUrl: 'partials/MedioDePagoUso.html', controller: 'MedioDePagoUsoCtrl'});
 	$routeProvider.when('/Bicicleta', {templateUrl: 'partials/Bicicleta.html', controller: 'BicicletaCtrl'});
 	$routeProvider.when('/Multa', {templateUrl: 'partials/Multa.html', controller: 'MultaCtrl'});
-        /*if[Accesorio]*/
+        /*if[Accesorios]*/
 	$routeProvider.when('/Accesorio', {templateUrl: 'partials/Accesorio.html', controller: 'AccesorioCtrl'});
-        /*end[Accesorio]*/
+        /*end[Accesorios]*/
 	$routeProvider.when('/MedioDePago', {templateUrl: 'partials/MedioDePago.html', controller: 'MedioDePagoCtrl'});
 	$routeProvider.when('/Convenio', {templateUrl: 'partials/Convenio.html', controller: 'ConvenioCtrl'});
 	$routeProvider.when('/Proveedor', {templateUrl: 'partials/Proveedor.html', controller: 'ProveedorCtrl'});
