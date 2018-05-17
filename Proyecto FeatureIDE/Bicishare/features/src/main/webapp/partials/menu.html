@@ -1,83 +1,35 @@
-
-<div class="btn-menu" onclick="window.location.href = '#/Bicicleta'">
-	<button>
-		<span class="glyphicon glyphicon-th"></span>
-	</button>
-	Bicicleta
-</div>
-<div class="btn-menu" onclick="window.location.href = '#/Usuario'">
-	<button>
-		<span class="glyphicon glyphicon-th"></span>
-	</button>
-	Usuario
-</div>
-/*if[Bonificaciones]*/
-<div class="btn-menu" onclick="window.location.href = '#/Logro'">
-	<button>
-		<span class="glyphicon glyphicon-th"></span>
-	</button>
-	Logro
-</div>
-<div class="btn-menu" onclick="window.location.href = '#/Multa'">
-	<button>
-		<span class="glyphicon glyphicon-th"></span>
-	</button>
-	Multa
-</div>
-/*if[Gamification]*/
-<div class="btn-menu"
-	onclick="window.location.href = '#/BonificacionGanada'">
-	<button>
-		<span class="glyphicon glyphicon-th"></span>
-	</button>
-	BonificacionGanada
-</div>
-/*end[Gamification]*/
-<div class="btn-menu" onclick="window.location.href = '#/Bonificacion'">
-	<button>
-		<span class="glyphicon glyphicon-th"></span>
-	</button>
-	Bonificacion
-</div>
-/*end[Bonificaciones]*/
-<div class="btn-menu" onclick="window.location.href = '#/Biciusuario'">
-	<button>
-		<span class="glyphicon glyphicon-th"></span>
-	</button>
-	Biciusuario
-</div>
-<div class="btn-menu" onclick="window.location.href = '#/Prestamo'">
-	<button>
-		<span class="glyphicon glyphicon-th"></span>
-	</button>
-	Prestamo
-</div>
-<div class="btn-menu" onclick="window.location.href = '#/Marca'">
-	<button>
-		<span class="glyphicon glyphicon-th"></span>
-	</button>
-	Marca
-</div>
-<div class="btn-menu" onclick="window.location.href = '#/Proveedor'">
-	<button>
-		<span class="glyphicon glyphicon-th"></span>
-	</button>
-	Proveedor
-</div>
-/*if[Pago]*/
-<div class="btn-menu" onclick="window.location.href = '#/Pago'">
-	<button>
-		<span class="glyphicon glyphicon-th"></span>
-	</button>
-	Pago
-</div>
-/*end[Pago]*/
-/*if[Accesorios]*/
-<div class="btn-menu" onclick="window.location.href = '#/Accesorio'">
-	<button>
-		<span class="glyphicon glyphicon-th"></span>
-	</button>
-	Accesorio
-</div>
-/*end[Accesorios]*/
-
+<nav class="menu" ng-controller="MenuCtrl" style="background-color: {{mainColor}}; color: {{textColor}};">
+  <img onclick="window.location.href='#/'" class="logo" src="{{logo}}" ng-if="logo" height="100">
+  <ul>
+    <li>
+      <a href="#/Bicicleta">Bicicletas</a>
+    </li>
+    /*if[Accesorios]*/
+    <li>
+      <a href="#/Accesorio">Accesorios</a>
+    </li>
+    /*end[Accesorios]*/
+    /*if[Bonificaciones]*/
+    <li>
+      <a href="#/Logro">Logros</a>
+    </li>
+    <li>
+      <a href="#/Bonificacion">Bonificaciones</a>
+    </li>
+    /*end[Bonificaciones]*/
+    <li>
+      <a href="#/Multa">Multas</a>
+    </li>
+    <li>
+      <a href="#/Prestamo">Prestamos</a>
+    </li>
+    <li>
+      <a href="#/Marca">Marcas</a>
+    </li>
+    /*if[Pago]*/
+    <li>
+      <a href="#/Pago">Pagos</a>
+    </li>
+    /*end[Pago]*/
+  </ul>
+</nav>
