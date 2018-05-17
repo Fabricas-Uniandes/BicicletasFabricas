@@ -82,9 +82,9 @@ public class LogroLogica {
     }
     LogroCliente entidad = new LogroCliente();
     entidad.setId(dto.getId());
-    Biciusuario biciEntity = new Biciusuario();
-    biciEntity.setId(dto.getBiciusuario().getId());
-    entidad.setBiciusuario(biciEntity);
+    Usuario biciEntity = new Usuario();
+    biciEntity.setId(dto.getUsuario().getId());
+    entidad.setUsuario(biciEntity);
     
     Logro logroEntity = new Logro();
     logroEntity.setId(dto.getLogro().getId());
@@ -119,11 +119,10 @@ public class LogroLogica {
     LogroClienteDTO dto = new LogroClienteDTO();
     dto.setId(entidad.getId());
     
-    BiciusuarioDTO bicidto = new BiciusuarioDTO();
-    bicidto.setId(entidad.getBiciusuario().getId());
-    bicidto.setFoto(entidad.getBiciusuario().getFoto());
-    bicidto.setNombre(entidad.getBiciusuario().getNombre());
-    dto.setBiciusuario(bicidto);
+    UsuarioDTO bicidto = new UsuarioDTO();
+    bicidto.setId(entidad.getUsuario().getId());
+    bicidto.setNombreDeUsuario(entidad.getUsuario().getNombreDeUsuario());
+    dto.setUsuario(bicidto);
     
     LogroDTO logrodto = new LogroDTO();
     logrodto.setId(entidad.getLogro().getId());

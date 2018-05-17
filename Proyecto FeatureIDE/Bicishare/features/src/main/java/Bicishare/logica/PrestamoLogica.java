@@ -127,9 +127,9 @@ public class PrestamoLogica {
 			}
 		}
 
-		if (dto.getBiciusuario() != null) {
-			entidad.setBiciusuario(new Biciusuario());
-			entidad.getBiciusuario().setId(dto.getBiciusuario().getId());
+		if (dto.getUsuario() != null) {
+			entidad.setUsuario(new Usuario());
+			entidad.getUsuario().setId(dto.getUsuario().getId());
 		}
 		if (dto.getPago() != null) {
 			entidad.setPago(new Pago());
@@ -183,8 +183,8 @@ public class PrestamoLogica {
 		if (entidad.getMulta() != null) {
 			dto.setMulta(new MultaDTO(entidad.getMulta().getId()));
 		}
-		if (entidad.getBiciusuario() != null) {
-			dto.setBiciusuario(new BiciusuarioDTO(entidad.getBiciusuario().getId()));
+		if (entidad.getUsuario() != null) {
+			dto.setUsuario(new UsuarioDTO(entidad.getUsuario().getId()));
 		}
 
 		return dto;

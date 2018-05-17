@@ -85,7 +85,7 @@ public class PrestamoDTO {
 	/**
 	 * @generated
 	 */
-	private BiciusuarioDTO biciusuario;
+	private UsuarioDTO usuario;
 
 	/**
 	 * @generated
@@ -152,16 +152,16 @@ public class PrestamoDTO {
 	 * @return
 	 * @generated
 	 */
-	public BiciusuarioDTO getBiciusuario() {
-		return this.biciusuario;
+	public UsuarioDTO getUsuario() {
+		return this.usuario;
 	}
 
 	/**
 	 * @param
 	 * @generated
 	 */
-	public void setBiciusuario(BiciusuarioDTO biciusuario) {
-		this.biciusuario = biciusuario;
+	public void setUsuario(UsuarioDTO usuario) {
+		this.usuario = usuario;
 	}
 
 	/**

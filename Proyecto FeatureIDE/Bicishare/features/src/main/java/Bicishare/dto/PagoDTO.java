@@ -42,28 +42,7 @@ public class PagoDTO {
 	/**
 	 * @generated
 	 */
-	private MedioDePagoUsoDTO MedioDePagoUso;
-
-	/**
-	 * @generated
-	 */
 	private PrestamoDTO prestamo;
-
-	/**
-	 * @return
-	 * @generated
-	 */
-	public String getMedioPago() {
-		return this.medioPago;
-	}
-
-	/**
-	 * @param
-	 * @generated
-	 */
-	public void setMedioPago(String medioPago) {
-		this.medioPago = medioPago;
-	}
 
 	/**
 	 * @return
@@ -79,22 +58,6 @@ public class PagoDTO {
 	 */
 	public void setValor(Long Valor) {
 		this.Valor = Valor;
-	}
-
-	/**
-	 * @return
-	 * @generated
-	 */
-	public MedioDePagoUsoDTO getMedioDePagoUso() {
-		return this.MedioDePagoUso;
-	}
-
-	/**
-	 * @param
-	 * @generated
-	 */
-	public void setMedioDePagoUso(MedioDePagoUsoDTO MedioDePagoUso) {
-		this.MedioDePagoUso = MedioDePagoUso;
 	}
 
 	/**

@@ -8,13 +8,16 @@
                         Bicicleta
                     </div>
                     <div class="col-md-2">
-                        Valor
+                        Valor alquiler
                     </div>
                     <div class="col-md-2">
                         Dias
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         Imagen
+                    </div>
+                    <div class="col-md-2">
+                        Valor Total
                     </div>
                 </div>
                 <br>
@@ -30,8 +33,11 @@
                                 <option ng-repeat="n in rangeDays" value="{{n}}">{{n}}</option>
                         </select>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <img ng-src="{{bike.foto}}" alt="Bike Image"/>
+                    </div>
+                     <div class="col-md-2" style="font-size:bold">
+                        {{valTotal | currency}}
                     </div>
                 </div>
                 <div class="row align-items-right">

@@ -62,7 +62,7 @@ public class Prestamo {
 	 * @generated 1-1-false
 	 */
 	@ManyToOne(cascade = {}, fetch = FetchType.EAGER)
-	private Biciusuario biciusuario;
+	private Usuario usuario;
 
 	/**
 	 * @generated 0--1-true
@@ -107,15 +107,15 @@ public class Prestamo {
 	/**
 	 * @generated
 	 */
-	public Biciusuario getBiciusuario() {
-		return this.biciusuario;
+	public Usuario getUsuario() {
+		return this.usuario;
 	}
 
 	/**
 	 * @generated
 	 */
-	public void setBiciusuario(Biciusuario biciusuario) {
-		this.biciusuario = biciusuario;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 	/**
