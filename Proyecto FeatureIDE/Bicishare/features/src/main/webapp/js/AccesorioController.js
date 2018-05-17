@@ -30,5 +30,7 @@ module.controller('AccesorioCtrl', ['$scope', '$filter', '$http', function ($sco
       }
       localStorage.setItem("carrito", JSON.stringify(carrito));
     };
+    
+    $scope.listar();
     /*end[Accesorios]*/
   }]);

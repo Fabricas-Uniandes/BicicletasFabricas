@@ -15,6 +15,7 @@
 		<feature automatic="selected" manual="selected" name="Pago"/>
 		<feature manual="selected" name="PSE"/>
 		<feature manual="selected" name="Efectivo"/>
+		<feature manual="selected" name="Tarjeta de Credito"/>
 		<feature manual="selected" name="Bonificaciones"/>
 		<feature automatic="selected" name="Ver Catalogo"/>
 		<feature automatic="selected" name="Seleccionar Premios"/>
