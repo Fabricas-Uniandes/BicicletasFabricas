@@ -1,32 +1,44 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 	<configuration>
-		<feature automatic="selected" name="BiciSharing"/>
-		<feature automatic="selected" name="Usuarios"/>
-		<feature automatic="selected" name="Crear"/>
-		<feature automatic="selected" name="Modificar"/>
-		<feature automatic="selected" name="Validar"/>
-		<feature automatic="selected" name="Prestamo"/>
-		<feature automatic="selected" name="Bicicletas"/>
-		<feature automatic="selected" name="Retirar Bicicleta"/>
-		<feature automatic="selected" name="Entregar Bicicleta"/>
+		<feature automatic="selected" manual="undefined" name="BiciSharing"/>
+		<feature automatic="selected" manual="undefined" name="Usuarios"/>
+		<feature automatic="selected" manual="undefined" name="Crear"/>
+		<feature automatic="selected" manual="undefined" name="Modificar"/>
+		<feature automatic="selected" manual="undefined" name="Validar"/>
+		<feature automatic="selected" manual="undefined" name="Prestamo"/>
+		<feature automatic="selected" manual="undefined" name="Bicicletas"/>
+		<feature automatic="selected" manual="undefined" name="Retirar Bicicleta"/>
+		<feature automatic="selected" manual="undefined" name="Entregar Bicicleta"/>
+		<feature automatic="undefined" manual="selected" name="Accesorios"/>
+		<feature automatic="selected" manual="undefined" name="Retirar Accesorio"/>
+		<feature automatic="selected" manual="undefined" name="Entregar Accesorio"/>
 		<feature automatic="selected" manual="selected" name="Pago"/>
-		<feature manual="selected" name="PSE"/>
-		<feature manual="selected" name="Efectivo"/>
-		<feature manual="selected" name="Tarjeta de Credito"/>
-		<feature manual="selected" name="Bonificaciones"/>
-		<feature automatic="selected" name="Ver Catalogo"/>
-		<feature automatic="selected" name="Seleccionar Premios"/>
-		<feature automatic="selected" name="Multas"/>
-		<feature automatic="selected" name="Registrar"/>
-		<feature automatic="selected" name="Consultar"/>
-		<feature automatic="selected" name="Ajustar"/>
-		<feature automatic="selected" name="Inventario"/>
-		<feature automatic="selected" name="Registar Ingreso"/>
-		<feature automatic="selected" name="Registrar Salida"/>
-		<feature automatic="selected" name="Actualizar Inventario"/>
-		<feature automatic="selected" name="Crear Item"/>
-		<feature automatic="selected" name="Eliminar Item"/>
-		<feature automatic="selected" name="Modificar Estado Item"/>
-		<feature automatic="selected" name="Interfaz"/>
-		<feature automatic="selected" name="Web"/>
+		<feature automatic="undefined" manual="selected" name="PSE"/>
+		<feature automatic="undefined" manual="selected" name="Efectivo"/>
+		<feature automatic="undefined" manual="selected" name="Tarjeta de Credito"/>
+		<feature automatic="undefined" manual="selected" name="Convenios"/>
+		<feature automatic="undefined" manual="undefined" name="Gamification"/>
+		<feature automatic="undefined" manual="undefined" name="Ver Retos"/>
+		<feature automatic="undefined" manual="undefined" name="Crear Retos"/>
+		<feature automatic="undefined" manual="undefined" name="Contador"/>
+		<feature automatic="undefined" manual="undefined" name="Ver Avance"/>
+		<feature automatic="undefined" manual="undefined" name="Aprobar Retos"/>
+		<feature automatic="undefined" manual="selected" name="Bonificaciones"/>
+		<feature automatic="selected" manual="undefined" name="Ver Catalogo"/>
+		<feature automatic="selected" manual="undefined" name="Seleccionar Premios"/>
+		<feature automatic="selected" manual="undefined" name="Multas"/>
+		<feature automatic="selected" manual="undefined" name="Registrar"/>
+		<feature automatic="selected" manual="undefined" name="Consultar"/>
+		<feature automatic="selected" manual="undefined" name="Ajustar"/>
+		<feature automatic="selected" manual="undefined" name="Inventario"/>
+		<feature automatic="selected" manual="undefined" name="Registar Ingreso"/>
+		<feature automatic="selected" manual="undefined" name="Registrar Salida"/>
+		<feature automatic="selected" manual="undefined" name="Actualizar Inventario"/>
+		<feature automatic="selected" manual="undefined" name="Crear Item"/>
+		<feature automatic="selected" manual="undefined" name="Eliminar Item"/>
+		<feature automatic="selected" manual="undefined" name="Modificar Estado Item"/>
+		<feature automatic="selected" manual="undefined" name="Interfaz"/>
+		<feature automatic="selected" manual="undefined" name="Web"/>
+		<feature automatic="undefined" manual="undefined" name="Android"/>
+		<feature automatic="undefined" manual="undefined" name="IOS"/>
 	</configuration>

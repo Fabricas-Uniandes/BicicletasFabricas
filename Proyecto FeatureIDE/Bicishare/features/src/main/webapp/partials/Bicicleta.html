@@ -1,5 +1,3 @@
-
-
 <div class="panel panel-primary" ng-hide="panelEditar">
 	<div class="panel-heading">Parametrizaci&oacute;n de Bicicleta</div>
 	<div class="panel-body">
@@ -7,48 +5,50 @@
 			<button type="button" class="btn btn-default" ng-click="nuevo()">Nuevo
 				Bicicleta</button>
 		</div>
-		<table class="resultados table table-striped">
-			<tr>
-				<th>serial</th>
-				/*if[Pago]*/
-				<th>precio</th>
-				<th>precioAlquiler</th>
-				/*end[Pago]*/
-				<th>foto</th>
-				<th>marca</th>
-				<th>proveedor</th>
-				<th><input class="form-control" ng-model="q"
-					placeholder="Buscar" /></th>
-			</tr>
-			<tr dir-paginate="row in lista|filter: q|itemsPerPage:10">
-				<td>{{row.serial}}</td>
-				/*if[Pago]*/
-				<td>{{row.precio}}</td>
-				<td>{{row.precioAlquiler}}</td>
-				/*end[Pago]*/
-				<td>{{row.foto}}</td>
-				<td class="row">{{row.proveedor.nombre}}</td>
-				<td class="row">{{row.marca.nombre}}</td>
-				<td class="row">
-					<button type="button" class="btn btn-default"
-						ng-click="editar(row)">
-						<span class="glyphicon glyphicon-pencil"></span>Editar
-					</button>
-					<button type="button" class="btn btn-default"
-						ng-click="eliminar(row)">
-						<span class="glyphicon glyphicon-remove"></span>Eliminar
-					</button>
-					<button type="button" class="btn btn-default"
-						ng-click="seleccionar(row)">
-						<span class="glyphicon glyphicon-remove"></span>Seleccionar
-					</button>
-				</td>
-			</tr>
-		</table>
+            <ol dir-paginate="row in lista|filter: q|itemsPerPage:10" id="searchResults" class="section search-results list-view grid search-results-mot list--has-row-logos " imgtype="listingLightweight"> 
+            <li class="results-item article grid "> 
+                <div class="rowItem item item--grid item--has-row-logo new" id="{{row.serial}}">
+                    <div class="item__image item__image--grid"> 
+                        <div class="images-viewer" item-url="/src/Prestamo/{{row.serial}}" item-id="{{row.serial}}">
+                            <a href="/src/Prestamo/{{row.serial}}" class="item-link item__js-link">
+                                <img ng-show="row.foto" alt="{{row.serial}}" src="{{row.foto}}" class="lazy-load">
+                                <img ng-show="!row.foto" alt="{{row.serial}}" src="https://escuelaenlanube.files.wordpress.com/2012/09/bicicleta.jpg" class="lazy-load">
+                            </a> 
+                        </div>
+                    </div> 
+                    <span class="item-loading__status-bar item-loading__hide"></span>
+                    <a href="/src/Prestamo/{{row.serial}}" class="item__info-link item__js-link "> 
+                        <div class="item__info ">
+                            <div class="item__price "> 
+                                <span class="price__symbol">$</span> 
+                                <span class="price__fraction">{{row.precioAlquiler}}</span>
+                            </div> 
+                            <div class="item__attrs">${{row.precio}}</div>
+                            <div class="item__title list-view-item-title">
+                                <span class="main-title"> {{row.serial}} </span>
+                            </div> 
+                            <div class="item__location">{{row.marca.nombre + ' ' + row.proveedor.nombre}}</div> 
+                        </div>
+                    </a>
+                    <div class="item__location_padb">
+                        <div class="item__location">
+                                <button class="add_cart_btn" ng-click="editar(row)">Editar</button>
+                                <button class="add_cart_btn" ng-click="eliminar(row)">Eliminar</button>
+                        </div> 
+                    </div>
+                        
+                </div>
+            </li>
+            </ol>  
+            
+            
+            
+		
 		<div dir-pagination-controls></div>
 		<br />
 	</div>
 </div>
+
 
 <div class="panel panel-primary" ng-show="panelEditar">
 	<div class="panel-heading">Parametrizaci&oacute;n de Bicicleta</div>
