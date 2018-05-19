@@ -5,12 +5,14 @@ module.controller('MenuCtrl', ['$scope', '$filter', '$http', function ($scope, $
     $scope.mainColor = "#FFF";
     $scope.sponsor = "BiciShare";
     $scope.textColor = "#000";
+    $scope.secondaryColor = "#000";
     $http.get('./assets/config.json', {})
             .success(function (data, status, headers, config) {
-              $scope.logo = data.logo;
-              $scope.mainColor = "#" + data.mainColor;
-              $scope.sponsor = data.sponsor;
-              $scope.textColor = "#" + data.textColor;
+              $scope.logo = data.logo ? data.logo : $scope.logo;
+              $scope.mainColor = data.mainColor ? "#" + data.mainColor : $scope.mainColor;
+              $scope.sponsor = data.sponsor ? data.sponsor : $scope.sponsor;
+              $scope.textColor = data.textColor ? "#" + data.textColor : $scope.textColor;
+              $scope.secondaryColor = data.secondaryColor ? "#" + data.secondaryColor : $scope.secondaryColor;
             }).error(function (data, status, headers, config) {
               alert('Error al consultar la informaci\xf3n, por favor intente m\xe1s tarde');
             });

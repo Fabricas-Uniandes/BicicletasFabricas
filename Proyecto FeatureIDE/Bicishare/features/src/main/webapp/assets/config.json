@@ -2,5 +2,6 @@
   "logo" : "https://dig.uniandes.edu.co/intranet_dig/images/logo_uandes.png",
   "sponsor" : "Uniandes",
   "mainColor" : "FFF200",
-  "textColor" : "000000"
+  "textColor" : "484851",
+  "secondaryColor" : "FFF200"
 }
