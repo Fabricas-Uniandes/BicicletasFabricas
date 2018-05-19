@@ -5,106 +5,99 @@ import java.util.List;
 import java.util.ArrayList;
 
 /**
- * @generated
- * @author eaperador
+ * @generated @author eaperador
  */
-
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AccesorioDTO {
-	public AccesorioDTO() {
-		// constructor base
-	}
 
-	public AccesorioDTO(Long id) {
-		this.id = id;
-	}
+  public AccesorioDTO() {
+    // constructor base
+  }
 
-	private Long id;
+  public AccesorioDTO(Long id) {
+    this.id = id;
+  }
 
-	public Long getId() {
-		return id;
-	}
+  private Long id;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+  public Long getId() {
+    return id;
+  }
 
-	/**
-	 * @generated
-	 */
-	private String nombre;
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-	/**
-	 * @generated
-	 */
-	private String tipo;
+  /**
+   * @generated
+   */
+  private String nombre;
 
-	/**
-	 * @generated
-	 */
-	private String foto;
+  /**
+   * @generated
+   */
+  private String tipo;
 
-	/**
-	 * @generated
-	 */
-	private List<PrestamoDTO> prestamo;
+  /**
+   * @generated
+   */
+  private String foto;
 
-	public List<PrestamoDTO> getPrestamo() {
-		if (this.prestamo == null) {
-			prestamo = new ArrayList<PrestamoDTO>();
-		}
-		return prestamo;
-	}
+  /**
+   * @generated
+   */
+  private List<PrestamoDTO> prestamo;
 
-	public void setPrestamo(List<PrestamoDTO> prestamo) {
-		this.prestamo = prestamo;
-	}
+  public List<PrestamoDTO> getPrestamo() {
+    if (this.prestamo == null) {
+      prestamo = new ArrayList<PrestamoDTO>();
+    }
+    return prestamo;
+  }
 
-	/**
-	 * @return
-	 * @generated
-	 */
-	public String getNombre() {
-		return this.nombre;
-	}
+  public void setPrestamo(List<PrestamoDTO> prestamo) {
+    this.prestamo = prestamo;
+  }
 
-	/**
-	 * @param
-	 * @generated
-	 */
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+  /**
+   * @return @generated
+   */
+  public String getNombre() {
+    return this.nombre;
+  }
 
-	/**
-	 * @return
-	 * @generated
-	 */
-	public String getTipo() {
-		return this.tipo;
-	}
+  /**
+   * @param @generated
+   */
+  public void setNombre(String nombre) {
+    this.nombre = nombre;
+  }
 
-	/**
-	 * @param
-	 * @generated
-	 */
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
-	}
+  /**
+   * @return @generated
+   */
+  public String getTipo() {
+    return this.tipo;
+  }
 
-	/**
-	 * @return
-	 * @generated
-	 */
-	public String getFoto() {
-		return this.foto;
-	}
+  /**
+   * @param @generated
+   */
+  public void setTipo(String tipo) {
+    this.tipo = tipo;
+  }
 
-	/**
-	 * @param
-	 * @generated
-	 */
-	public void setFoto(String foto) {
-		this.foto = foto;
-	}
+  /**
+   * @return @generated
+   */
+  public String getFoto() {
+    return this.foto;
+  }
+
+  /**
+   * @param @generated
+   */
+  public void setFoto(String foto) {
+    this.foto = foto;
+  }
 }
