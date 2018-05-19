@@ -12,7 +12,7 @@ import javax.persistence.*;
 @NamedQueries({
   @NamedQuery(name = "LogroCliente.obtenerTodos", query = "select e from LogroCliente e"),
   @NamedQuery(name = "LogroCliente.obtenerTodosPorUsuario", query = "select e from LogroCliente e "
-          + "where e.biciusuario.id = :userId")
+          + "where e.usuario.id = :userId")
 })
 public class LogroCliente {
 
@@ -43,7 +43,7 @@ public class LogroCliente {
    * @generated 0--1-true
    */
   @ManyToOne(cascade = {}, fetch = javax.persistence.FetchType.LAZY)
-  private Biciusuario biciusuario;
+  private Usuario usuario;
 
   public Logro getLogro() {
     return logro;
@@ -53,11 +53,11 @@ public class LogroCliente {
     this.logro = logro;
   }
 
-  public Biciusuario getBiciusuario() {
-    return biciusuario;
+  public Usuario getUsuario() {
+    return usuario;
   }
 
-  public void setBiciusuario(Biciusuario biciusuario) {
-    this.biciusuario = biciusuario;
+  public void setUsuario(Usuario usuario) {
+    this.usuario = usuario;
   }
 }

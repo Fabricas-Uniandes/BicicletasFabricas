@@ -91,9 +91,9 @@ public class BonificacionGanadaLogica {
 		entidad.setId(dto.getId());
 		entidad.setNombre(dto.getNombre());
 
-		if (dto.getBiciusuario() != null) {
-			entidad.setBiciusuario(new Biciusuario());
-			entidad.getBiciusuario().setId(dto.getBiciusuario().getId());
+		if (dto.getUsuario() != null) {
+			entidad.setUsuario(new Usuario());
+			entidad.getUsuario().setId(dto.getUsuario().getId());
 		}
 		if (dto.getBonificacion() != null) {
 			entidad.setBonificacion(new Bonificacion());
@@ -133,8 +133,8 @@ public class BonificacionGanadaLogica {
 		dto.setId(entidad.getId());
 		dto.setNombre(entidad.getNombre());
 
-		if (entidad.getBiciusuario() != null) {
-			dto.setBiciusuario(new BiciusuarioDTO(entidad.getBiciusuario().getId()));
+		if (entidad.getUsuario() != null) {
+			dto.setUsuario(new UsuarioDTO(entidad.getUsuario().getId()));
 		}
 		if (entidad.getBonificacion() != null) {
 			dto.setBonificacion(new BonificacionDTO(entidad.getBonificacion().getId()));

@@ -36,6 +36,14 @@ public class Pago {
 	// @Column(name = "medioPago")
 	private String medioPago;
 
+	public String getMedioPago() {
+		return this.medioPago;
+	}
+	
+	public void setMedioPago(String medioPago) {
+		this.medioPago = medioPago;
+	}
+	
 	/**
 	 * @generated 1-1-false
 	 */
@@ -50,26 +58,6 @@ public class Pago {
 	private Prestamo prestamo;
 
 	/**
-	 * @generated 1-1-false
-	 */
-	@ManyToOne(cascade = {}, fetch = FetchType.EAGER)
-	private MedioDePagoUso MedioDePagoUso;
-
-	/**
-	 * @generated
-	 */
-	public String getMedioPago() {
-		return this.medioPago;
-	}
-
-	/**
-	 * @generated
-	 */
-	public void setMedioPago(String medioPago) {
-		this.medioPago = medioPago;
-	}
-
-	/**
 	 * @generated
 	 */
 	public Long getValor() {
@@ -81,20 +69,6 @@ public class Pago {
 	 */
 	public void setValor(Long Valor) {
 		this.Valor = Valor;
-	}
-
-	/**
-	 * @generated
-	 */
-	public MedioDePagoUso getMedioDePagoUso() {
-		return this.MedioDePagoUso;
-	}
-
-	/**
-	 * @generated
-	 */
-	public void setMedioDePagoUso(MedioDePagoUso MedioDePagoUso) {
-		this.MedioDePagoUso = MedioDePagoUso;
 	}
 
 	/**
