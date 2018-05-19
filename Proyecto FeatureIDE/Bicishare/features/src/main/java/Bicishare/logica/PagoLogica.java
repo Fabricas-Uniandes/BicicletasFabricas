@@ -102,6 +102,7 @@ public class PagoLogica {
 		Pago entidad = new Pago();
 		entidad.setId(dto.getId());
 		entidad.setValor(dto.getValor());
+		entidad.setMedioPago(dto.getMedioPago());
 
 		if (dto.getPrestamo() != null) {
 			entidad.setPrestamo(new Prestamo());
@@ -138,6 +139,7 @@ public class PagoLogica {
 		PagoDTO dto = new PagoDTO();
 		dto.setId(entidad.getId());
 		dto.setValor(entidad.getValor());
+		dto.setMedioPago(entidad.getMedioPago());
 
 		if (entidad.getPrestamo() != null) {
 			dto.setPrestamo(new PrestamoDTO(entidad.getPrestamo().getId()));

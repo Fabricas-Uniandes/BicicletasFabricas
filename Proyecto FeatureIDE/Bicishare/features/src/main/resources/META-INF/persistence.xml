@@ -11,12 +11,13 @@
     <class>Bicishare.persistencia.entity.Logro</class>
     <class>Bicishare.persistencia.entity.Marca</class>
     <class>Bicishare.persistencia.entity.Multa</class>
-    <class>Bicishare.persistencia.entity.PSE</class>
+    /*if[Pago]*/
     <class>Bicishare.persistencia.entity.Pago</class>
+    <class>Bicishare.persistencia.entity.Banco</class>
+    /*end[Pago]*/
     <class>Bicishare.persistencia.entity.Prestamo</class>
     <class>Bicishare.persistencia.entity.Proveedor</class>
     <class>Bicishare.persistencia.entity.LogroCliente</class>
-    <class>Bicishare.persistencia.entity.Banco</class>
     <class>Bicishare.persistencia.entity.Usuario</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>

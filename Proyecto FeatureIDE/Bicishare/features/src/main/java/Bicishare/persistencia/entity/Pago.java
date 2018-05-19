@@ -36,6 +36,14 @@ public class Pago {
 	// @Column(name = "medioPago")
 	private String medioPago;
 
+	public String getMedioPago() {
+		return this.medioPago;
+	}
+	
+	public void setMedioPago(String medioPago) {
+		this.medioPago = medioPago;
+	}
+	
 	/**
 	 * @generated 1-1-false
 	 */

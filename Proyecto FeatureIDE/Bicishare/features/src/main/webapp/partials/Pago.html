@@ -64,13 +64,21 @@
                     <div class="col-md-6">
                         <table ng-show="typePayment == 'pse'">
                             <tr style="height:30px">
+                                <td>Banco</td>
                                 <td>
-                                    Banco: <select>
+                                    <select>
                                         <option ng-repeat="banco in listaBancos">{{banco.nombre}}</option>
                                     </select>
                                 </td>
                             </tr>
-                            <tr><td></td></tr>
+                            <tr>
+                                    <td>
+                                        Valor
+                                    </td>
+                                    <td>
+                                        {{valTotal | currency}}
+                                    </td>
+                                </tr>
                             <tr style="height:30px">
                                 <td>
                                     <button type="button" class="btn btn-default" ng-click="continuarPSE()">
@@ -100,6 +108,14 @@
                                         <select>
                                             <option ng-repeat="banco in listaBancos">{{banco.nombre}}</option>
                                         </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Valor
+                                    </td>
+                                    <td>
+                                        {{valTotal | currency}}
                                     </td>
                                 </tr>
                                 <tr>

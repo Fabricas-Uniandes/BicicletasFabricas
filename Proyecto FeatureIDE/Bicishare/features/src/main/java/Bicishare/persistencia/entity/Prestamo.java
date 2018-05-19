@@ -50,12 +50,6 @@ public class Prestamo {
 	 * @generated 0-1-false
 	 */
 	@ManyToOne(cascade = {}, fetch = FetchType.EAGER)
-	private Pago pago;
-
-	/**
-	 * @generated 0-1-false
-	 */
-	@ManyToOne(cascade = {}, fetch = FetchType.EAGER)
 	private Multa multa;
 
 	/**
@@ -64,12 +58,26 @@ public class Prestamo {
 	@ManyToOne(cascade = {}, fetch = FetchType.EAGER)
 	private Usuario usuario;
 
+	/*if[Accesorios]*/
 	/**
 	 * @generated 0--1-true
 	 */
 	@OneToMany(cascade = {}, fetch = javax.persistence.FetchType.LAZY)
 	private List<Accesorio> accesorios;
 
+	public List<Accesorio> getAccesorios() {
+		if (accesorios != null) {
+			accesorios = new ArrayList<Accesorio>();
+		}
+		return this.accesorios;
+	}
+
+	public void setAccesorios(List<Accesorio> accesorios) {
+		this.accesorios = accesorios;
+	}
+
+	/*end[Accesorios]*/
+	
 	/**
 	 * @generated 1--1-true
 	 */
@@ -132,6 +140,15 @@ public class Prestamo {
 		this.multa = multa;
 	}
 
+	/*if[Pago]*/
+	
+	/**
+	 * @generated 0-1-false
+	 */
+	@ManyToOne(cascade = {}, fetch = FetchType.EAGER)
+	private Pago pago;
+	
+	
 	/**
 	 * @generated
 	 */
@@ -145,18 +162,9 @@ public class Prestamo {
 	public void setPago(Pago pago) {
 		this.pago = pago;
 	}
-
-	public List<Accesorio> getAccesorios() {
-		if (accesorios != null) {
-			accesorios = new ArrayList<Accesorio>();
-		}
-		return this.accesorios;
-	}
-
-	public void setAccesorios(List<Accesorio> accesorios) {
-		this.accesorios = accesorios;
-	}
-
+	/*end[Pago]*/
+	
+	
 	public List<Bicicleta> getBicicleta() {
 		if (bicicleta != null) {
 			bicicleta = new ArrayList<Bicicleta>();

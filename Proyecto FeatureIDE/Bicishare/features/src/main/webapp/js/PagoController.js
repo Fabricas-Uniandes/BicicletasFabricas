@@ -8,6 +8,8 @@ module.controller('PagoCtrl', ['$scope', '$filter', '$http', function ($scope, $
     $scope.valTotal;
     $scope.datosFormulario = {};
     $scope.panelEditar = false;
+    $scope.typePayment;
+    
     
     /*
     $scope.listar=function(){
@@ -96,6 +98,15 @@ module.controller('PagoCtrl', ['$scope', '$filter', '$http', function ($scope, $
     };
     
     $scope.continuarPSE = function(){
+    	
+    	$http.post('./webresources/Pago', JSON.stringify($scope.datosFormulario), {}
+        ).success(function (data, status, headers, config) {
+            alert("Los datos han sido guardados con Exito");
+            $scope.panelEditar = false;
+            $scope.listar();
+        }).error(function (data, status, headers, config) {
+            alert('Error al guardar la informaci\xf3n, por favor intente m\xe1s tarde');
+        });
         $window.location.href = 'https://www.pse.com.co/inicio';
     }
 }]);

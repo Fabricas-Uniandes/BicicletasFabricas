@@ -34,6 +34,14 @@ public class PagoDTO {
 	 */
 	private String medioPago;
 
+	public String getMedioPago() {
+		return this.medioPago;
+	}
+	
+	public void setMedioPago(String medioPago) {
+		this.medioPago = medioPago;
+	}
+	
 	/**
 	 * @generated
 	 */
