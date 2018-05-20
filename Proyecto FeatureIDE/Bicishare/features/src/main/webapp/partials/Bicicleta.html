@@ -10,8 +10,10 @@
 		<table class="resultados table table-striped">
 			<tr>
 				<th>serial</th>
+				/*if[Pago]*/
 				<th>precio</th>
 				<th>precioAlquiler</th>
+				/*end[Pago]*/
 				<th>foto</th>
 				<th>marca</th>
 				<th>proveedor</th>
@@ -20,8 +22,10 @@
 			</tr>
 			<tr dir-paginate="row in lista|filter: q|itemsPerPage:10">
 				<td>{{row.serial}}</td>
+				/*if[Pago]*/
 				<td>{{row.precio}}</td>
 				<td>{{row.precioAlquiler}}</td>
+				/*end[Pago]*/
 				<td>{{row.foto}}</td>
 				<td class="row">{{row.proveedor.nombre}}</td>
 				<td class="row">{{row.marca.nombre}}</td>
@@ -56,6 +60,7 @@
 				placeholder="serial" />
 			<div ng-show="errores.serial">{{errores.serial}}</div>
 		</div>
+		/*if[Pago]*/
 		<div class="form-group col-md-6" ng-class="errores.precio?'error':''">
 			<label for="precio">precio</label> <input id="precio"
 				class="form-control" type="text" ng-model="datosFormulario.precio"
@@ -70,6 +75,7 @@
 				placeholder="precioAlquiler" />
 			<div ng-show="errores.precioAlquiler">{{errores.precioAlquiler}}</div>
 		</div>
+		/*end[Pago]*/
 		<div class="form-group col-md-6" ng-class="errores.foto?'error':''">
 			<label for="foto">foto</label> <input id="foto" class="form-control"
 				type="text" ng-model="datosFormulario.foto" placeholder="foto" />

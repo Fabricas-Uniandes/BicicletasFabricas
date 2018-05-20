@@ -101,18 +101,13 @@ public class PagoLogica {
 			return null;
 		Pago entidad = new Pago();
 		entidad.setId(dto.getId());
-		entidad.setMedioPago(dto.getMedioPago());
 		entidad.setValor(dto.getValor());
+		entidad.setMedioPago(dto.getMedioPago());
 
 		if (dto.getPrestamo() != null) {
 			entidad.setPrestamo(new Prestamo());
 			entidad.getPrestamo().setId(dto.getPrestamo().getId());
 		}
-		if (dto.getMedioDePagoUso() != null) {
-			entidad.setMedioDePagoUso(new MedioDePagoUso());
-			entidad.getMedioDePagoUso().setId(dto.getMedioDePagoUso().getId());
-		}
-
 		return entidad;
 	}
 
@@ -143,16 +138,12 @@ public class PagoLogica {
 	public PagoDTO convertirEntidad(Pago entidad) {
 		PagoDTO dto = new PagoDTO();
 		dto.setId(entidad.getId());
-		dto.setMedioPago(entidad.getMedioPago());
 		dto.setValor(entidad.getValor());
+		dto.setMedioPago(entidad.getMedioPago());
 
 		if (entidad.getPrestamo() != null) {
 			dto.setPrestamo(new PrestamoDTO(entidad.getPrestamo().getId()));
 		}
-		if (entidad.getMedioDePagoUso() != null) {
-			dto.setMedioDePagoUso(new MedioDePagoUsoDTO(entidad.getMedioDePagoUso().getId()));
-		}
-
 		return dto;
 	}
 
