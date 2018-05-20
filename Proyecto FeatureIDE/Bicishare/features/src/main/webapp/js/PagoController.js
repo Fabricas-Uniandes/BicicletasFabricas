@@ -5,50 +5,49 @@ module.controller('PagoCtrl', ['$scope', '$filter', '$http', function ($scope, $
     $scope.lista = [];
     $scope.listaBancos = [];
     $scope.bike;
+    $scope.itemsCarrito = [];
     $scope.valTotal;
-    $scope.datosFormulario = {};
+    $scope.pagoCredito = {};
     $scope.panelEditar = false;
     $scope.typePayment;
+    $scope.datosPago = {};
     
-    
-    /*
-    $scope.listar=function(){
-        $http.get('./webresources/Pago', {})
-            .success(function (data, status, headers, config) {
-                $scope.lista = data;
-            }).error(function (data, status, headers, config) {
-                alert('Error al consultar la informaci\xf3n, por favor intente m\xe1s tarde');
-        });    
-    };
-	*/
-    
+  
     $scope.listarBancos=function(){
         $http.get('./webresources/Pago/bancos', {})
             .success(function (data, status, headers, config) {
                 $scope.listaBancos = data;
             }).error(function (data, status, headers, config) {
-                alert('Error al consultar la informaci\xf3n de MedioDePagoUso, por favor intente m\xe1s tarde');
+                alert('Error al consultar la informaci\xf3n de Bancos, por favor intente m\xe1s tarde');
         });    
     };
     
-    $scope.getBike = function(data){
-        $http.get('./webresources/Bicicleta/1', {})
-            .success(function (data, status, headers, config) {
-                $scope.bike = data;
-            }).error(function (data, status, headers, config) {
-                alert('Error al consultar la informaci\xf3n de getBike, por favor intente m\xe1s tarde');
+    $scope.getCarrito = function(data){
+        let carrito = [];
+        JSON.parse(localStorage.getItem('carrito')).forEach(function(element){
+            element.valTotal = 0;
+            carrito.push(element);
         });
+        
+    	$scope.itemsCarrito = carrito;
+    	if(localStorage.getItem('creditPayment') != null){
+    		$scope.pagoCredito = JSON.parse(localStorage.getItem('creditPayment'));
+    	}
     }
         
 
     //$scope.listar();
     $scope.listarBancos();
-    $scope.getBike();
+    $scope.getCarrito();
     $scope.rangeDays = _.range(1, 11);
     
-    $scope.calcTotal = function(data){
-        if($scope.valTotal != undefined && $scope.bike != undefined){
-            $scope.valTotal = $scope.bike.precioAlquiler * data;
+    $scope.calcTotal = function(data, item){
+    	if($scope.valTotal != undefined && $scope.itemsCarrito != undefined){
+            item.valTotal = item.precio * data * item.cantidad;
+            $scope.valTotal = 0;
+            $scope.itemsCarrito.forEach(function(element){
+                $scope.valTotal += element.valTotal;
+            });
         }
         else
             $scope.valTotal = 0;
@@ -97,9 +96,10 @@ module.controller('PagoCtrl', ['$scope', '$filter', '$http', function ($scope, $
         }
     };
     
-    $scope.continuarPSE = function(){
-    	
-    	$http.post('./webresources/Pago', JSON.stringify($scope.datosFormulario), {}
+    $scope.continuarPago = function(){
+    	$scope.datosPago.valor = $scope.valTotal;
+    	$scope.datosPago.medioPago = $scope.typePayment;
+    	$http.post('./webresources/Pago', JSON.stringify($scope.datosPago), {}
         ).success(function (data, status, headers, config) {
             alert("Los datos han sido guardados con Exito");
             $scope.panelEditar = false;
@@ -107,6 +107,11 @@ module.controller('PagoCtrl', ['$scope', '$filter', '$http', function ($scope, $
         }).error(function (data, status, headers, config) {
             alert('Error al guardar la informaci\xf3n, por favor intente m\xe1s tarde');
         });
-        $window.location.href = 'https://www.pse.com.co/inicio';
+    	if($scope.typePayment == 'creditCard'){
+    		localStorage.setItem('creditPayment', $scope.pagoCredito);
+    	}
+    	//localStorate.removeItem('carrito');
+        //$scope.itemsCarrito = []
+    	$window.location.href = 'https://www.pse.com.co/inicio';
     }
 }]);

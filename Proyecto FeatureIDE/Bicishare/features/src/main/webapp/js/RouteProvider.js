@@ -10,7 +10,6 @@ var app = angular.module('admininvalid', [
 app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/', {templateUrl: 'partials/home.html', controller: 'HomeCtrl'});
     $routeProvider.when('/Bonificacion', {templateUrl: 'partials/Bonificacion.html', controller: 'BonificacionCtrl'});
-    $routeProvider.when('/MedioDePagoUso', {templateUrl: 'partials/MedioDePagoUso.html', controller: 'MedioDePagoUsoCtrl'});
     $routeProvider.when('/Bicicleta', {templateUrl: 'partials/Bicicleta.html', controller: 'BicicletaCtrl'});
     $routeProvider.when('/Multa', {templateUrl: 'partials/Multa.html', controller: 'MultaCtrl'});
     /*if[Accesorios]*/

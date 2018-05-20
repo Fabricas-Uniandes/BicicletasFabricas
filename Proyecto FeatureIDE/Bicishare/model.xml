@@ -20,9 +20,7 @@
 				</and>
 				<or name="Pago">
 					<feature name="PSE"/>
-					<feature name="Efectivo"/>
-					<feature name="Tarjeta de Credito"/>
-					<feature name="Convenios"/>
+					<feature name="Tarjeta_de_Credito"/>
 				</or>
 				<and name="Gamification">
 					<feature mandatory="true" name="Ver Retos"/>

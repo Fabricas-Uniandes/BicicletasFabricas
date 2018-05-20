@@ -5,12 +5,15 @@
             <div class="container table-striped">
                 <div class="row align-items-center" style="background-color: aqua">
                     <div class="col-md-2">
-                        Bicicleta
+                        Item
                     </div>
                     <div class="col-md-2">
                         Valor alquiler
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-1">
+                        Cantidad
+                    </div>
+                    <div class="col-md-1">
                         Dias
                     </div>
                     <div class="col-md-4">
@@ -21,23 +24,26 @@
                     </div>
                 </div>
                 <br>
-                <div class="row align-items-center" ng-model="bike">
+                <div class="row align-items-center" ng-repeat="item in itemsCarrito">
                     <div class="col-md-2">
-                        {{bike.referencia}}
+                        {{item.nombre}}
                     </div>
                     <div class="col-md-2">
-                        {{bike.precioAlquiler | currency }}
+                        {{item.precio | currency }}
                     </div>
-                    <div class="col-md-2">
-                        <select ng-model="range" ng-change="calcTotal(range)">
+                    <div class="col-md-1">
+                        {{item.cantidad}}
+                    </div>
+                    <div class="col-md-1">
+                        <select ng-model="range" ng-change="calcTotal(range, item)">
                                 <option ng-repeat="n in rangeDays" value="{{n}}">{{n}}</option>
                         </select>
                     </div>
                     <div class="col-md-4">
-                        <img ng-src="{{bike.foto}}" alt="Bike Image"/>
+                        <img ng-src="{{item.foto}}" alt="Image"/>
                     </div>
                      <div class="col-md-2" style="font-size:bold">
-                        {{valTotal | currency}}
+                        {{item.valTotal | currency}}
                     </div>
                 </div>
                 <div class="row align-items-right">
@@ -52,22 +58,27 @@
             
             <br>
             <div class="container">
-                <div class="row align-items-center">
+                <div class="row align-items-center" ng-init="typePayment=pse">
+                	/*if[PSE]*/
                     <div class="col-md-6">
-                        <input type="radio" ng-model="typePayment" name="typePayment" value="pse" >  PSE<br>
+                        <input type="radio" ng-model="typePayment" name="typePayment" value="pse">  PSE<br>
                     </div>
+                    /*end[PSE]*/
+                    /*if[Tarjeta_de_Credito]*/
                     <div class="col-md-6">
                         <input type="radio" ng-model="typePayment" name="typePayment" value="creditCard" >  Credit Card<br>
                     </div>
+                    /*end[Tarjeta_de_Credito]*/
                 </div>
                 <div class="row align-items-center">
+                /*if[PSE]*/
                     <div class="col-md-6">
                         <table ng-show="typePayment == 'pse'">
                             <tr style="height:30px">
                                 <td>Banco</td>
                                 <td>
-                                    <select>
-                                        <option ng-repeat="banco in listaBancos">{{banco.nombre}}</option>
+                                    <select ng-model="bancoModel">
+                                        <option ng-repeat="banco in listaBancos" value="{{banco.nombre}}">{{banco.nombre}}</option>
                                     </select>
                                 </td>
                             </tr>
@@ -81,23 +92,25 @@
                                 </tr>
                             <tr style="height:30px">
                                 <td>
-                                    <button type="button" class="btn btn-default" ng-click="continuarPSE()">
+                                    <button type="button" class="btn btn-default" ng-click="continuarPago()">
                                     Continuar</button>
                                 </td>
                             </tr>
                         </table>
                     </div>
+                /*end[PSE]*/
+                /*if[Tarjeta_de_Credito]*/
                     <div class="col-md-6">
                         
-                        <table ng-show="typePayment == 'creditCard'">
+                        <table ng-show="typePayment == 'creditCard'" ng-model="pagoCredito">
                             <tr>
                                 <td>
                                     <input type="radio" ng-model="typeCredit" name="typeCredit" value="mastercard" />
-                                    <img ng-src="https://www.2-spyware.com/news/wp-content/uploads/news/mastercard.png" />
+                                    <img ng-src="https://www.mastercard.us/etc/clientlibs/consumer-product/images/locators/mc_nearby.png" />
                                 </td>
                                 <td>
                                     <input type="radio" ng-model="typeCredit" name="typeCredit" value="visa" />
-                                    <img ng-src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQseU27bubG-pWz_TQWzmAShLzGXXQMHJw2UHsgH34QH2gwVMY8" />
+                                    <img ng-src="https://yt3.ggpht.com/-Hs-1Qb-_sFw/AAAAAAAAAAI/AAAAAAAAAAA/GOYq5xGkxbc/s100-mo-c-c0xffffffff-rj-k-no/photo.jpg" />
                                 </td>
                             </tr>
                                 <tr style="height:30px">
@@ -105,8 +118,8 @@
                                         Banco:
                                     </td>
                                     <td>
-                                        <select>
-                                            <option ng-repeat="banco in listaBancos">{{banco.nombre}}</option>
+                                        <select ng-model="bancoModel">
+                                            <option ng-repeat="banco in listaBancos" value="{{banco.nombre"}}>{{banco.nombre}}</option>
                                         </select>
                                     </td>
                                 </tr>
@@ -123,7 +136,7 @@
                                         Numero de Tarjeta
                                     </td>
                                     <td>
-                                        <input type="text" />
+                                        <input type="text" ng-model="pagoCredito.numeroTarjeta"/>
                                     </td>
                                 </tr>
                                 <tr>
@@ -131,7 +144,7 @@
                                         Nombre titular
                                     </td>
                                     <td>
-                                        <input type="text" />
+                                        <input type="text" ng-model="pagoCredito.nombreTitular"/>
                                     </td>
                                 </tr>
                                 <tr>
@@ -139,7 +152,7 @@
                                         Codigo de verificacion
                                     </td>
                                     <td>
-                                        <input type="text" />
+                                        <input type="text" ng-model="pagoCredito.codigoVerificaion"/>
                                     </td>
                                 </tr>
                                 <tr>
@@ -147,19 +160,19 @@
                                         Vigencia
                                     </td>
                                     <td>
-                                        <input type="text" />
+                                        <input type="text" ng-model="pagoCredito.vigencia"/>
                                     </td>
                                 </tr>
                                 <tr style="height:30px" class="align-items-center">
                                     <td colspan="2">
-                                        <button type="button" class="btn btn-default" ng-click="continuarPSE()">
+                                        <button type="button" class="btn btn-default" ng-click="continuarPago()">
                                         Pagar</button>
                                     </td>
                                 </tr>
                             </table>
                     </div>
+                    /*end[Tarjeta_de_Credito]*/
                 </div>
             </div>
 	</div>
 </div>
-
