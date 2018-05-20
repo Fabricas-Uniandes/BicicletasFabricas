@@ -1,7 +1,7 @@
 'use strict';
 
 module.controller('LogroCtrl', ['$scope', '$filter', '$http', function ($scope, $filter, $http) {
-    //listar
+    /*if[Gamification]*/
     $scope.lista = [];
     $scope.datosFormulario = {};
     $scope.panelEditar = false;
@@ -57,4 +57,5 @@ module.controller('LogroCtrl', ['$scope', '$filter', '$http', function ($scope, 
             });   
         }
     };
+    /*end[Gamification]*/
 }]);
