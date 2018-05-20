@@ -137,7 +137,7 @@ public class PrestamoLogica {
 			entidad.getPago().setId(dto.getPago().getId());
 		}
 		/*end[Pago]*/
-		 */
+		 
 		if (dto.getMulta() != null) {
 			entidad.setMulta(new Multa());
 			entidad.getMulta().setId(dto.getMulta().getId());

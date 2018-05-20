@@ -38,16 +38,7 @@ module.controller('PrestamoCtrl', ['$scope', '$filter', '$http', function ($scop
         
         /*end[Pago]*/
         
-            $scope.listarBiciusuario=function(){
-            $http.get('./webresources/Biciusuario', {})
-                .success(function (data, status, headers, config) {
-                    $scope.listaBiciusuario = data;
-                }).error(function (data, status, headers, config) {
-                    alert('Error al consultar la informaci\xf3n de biciusuario, por favor intente m\xe1s tarde');
-            });    
-        };
-        $scope.listarBiciusuario();
-            $scope.listarBicicleta=function(){
+        $scope.listarBicicleta=function(){
             $http.get('./webresources/Bicicleta', {})
                 .success(function (data, status, headers, config) {
                     $scope.listaBicicleta = data;
@@ -55,8 +46,10 @@ module.controller('PrestamoCtrl', ['$scope', '$filter', '$http', function ($scop
                     alert('Error al consultar la informaci\xf3n de bicicleta, por favor intente m\xe1s tarde');
             });    
         };
+        
         $scope.listarBicicleta();
-            $scope.listarMulta=function(){
+        
+        $scope.listarMulta=function(){
             $http.get('./webresources/Multa', {})
                 .success(function (data, status, headers, config) {
                     $scope.listaMulta = data;

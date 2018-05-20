@@ -131,10 +131,13 @@ public class PrestamoLogica {
 			entidad.setUsuario(new Usuario());
 			entidad.getUsuario().setId(dto.getUsuario().getId());
 		}
+		
 		if (dto.getPago() != null) {
 			entidad.setPago(new Pago());
 			entidad.getPago().setId(dto.getPago().getId());
 		}
+		
+		 
 		if (dto.getMulta() != null) {
 			entidad.setMulta(new Multa());
 			entidad.getMulta().setId(dto.getMulta().getId());
@@ -176,10 +179,11 @@ public class PrestamoLogica {
 		if (entidad.getFechaFin() != null) {
 			dto.setFechaFin(fecha.format(entidad.getFechaFin()));
 		}
-
+		
 		if (entidad.getPago() != null) {
 			dto.setPago(new PagoDTO(entidad.getPago().getId()));
 		}
+		
 		if (entidad.getMulta() != null) {
 			dto.setMulta(new MultaDTO(entidad.getMulta().getId()));
 		}
