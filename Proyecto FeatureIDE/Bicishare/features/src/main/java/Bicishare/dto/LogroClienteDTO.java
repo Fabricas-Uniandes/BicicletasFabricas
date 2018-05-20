@@ -19,7 +19,7 @@ public class LogroClienteDTO {
   
   private Long id;
   
-  private BiciusuarioDTO biciusuario;
+  private UsuarioDTO usuario;
   
   private LogroDTO logro;
 
@@ -31,12 +31,12 @@ public class LogroClienteDTO {
     this.id = id;
   }
 
-  public BiciusuarioDTO getBiciusuario() {
-    return biciusuario;
+  public UsuarioDTO getUsuario() {
+    return usuario;
   }
 
-  public void setBiciusuario(BiciusuarioDTO biciusuario) {
-    this.biciusuario = biciusuario;
+  public void setUsuario(UsuarioDTO usuario) {
+    this.usuario = usuario;
   }
 
   public LogroDTO getLogro() {

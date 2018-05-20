@@ -29,6 +29,16 @@ public class BicicletaDTO {
 		this.id = id;
 	}
 
+	private String referencia;
+	
+	public String getReferencia() {
+		return this.referencia;
+	}
+	
+	public void setReferencia(String referencia) {
+		this.referencia = referencia;
+	}
+	
 	/**
 	 * @generated
 	 */

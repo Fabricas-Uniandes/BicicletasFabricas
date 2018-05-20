@@ -5,6 +5,9 @@
         <img src="{{accesorio.foto}}" alt="{{accesorio.nombre}}">
       </div>
       <div class="content-wrapper">
+        /*if[Pago]*/
+        <p><strong>$ {{accesorio.precio}}</strong></p>
+        /*end[Pago]*/
         <p>{{accesorio.nombre}}</p>
         <p>{{accesorio.tipo}}</p>
         <button ng-click="addToCart(accesorio)" class="add-cart">

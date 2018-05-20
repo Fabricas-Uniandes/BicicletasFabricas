@@ -1,85 +1,165 @@
 
 
 <div class="panel panel-primary" ng-hide="panelEditar">
-	<div class="panel-heading">Parametrizaci&oacute;n de Pago</div>
 	<div class="panel-body">
-		<div class="btn-group">
-			<button type="button" class="btn btn-default" ng-click="nuevo()">Nuevo
-				Pago</button>
-		</div>
-		<table class="resultados table table-striped">
-			<tr>
-				<th>medioPago</th>
-				<th>Valor</th>
-				<th>prestamo</th>
-				<th>MedioDePagoUso</th>
-				<th><input class="form-control" ng-model="q"
-					placeholder="Buscar" /></th>
-			</tr>
-			<tr dir-paginate="row in lista|filter: q|itemsPerPage:10">
-				<td>{{row.medioPago}}</td>
-				<td>{{row.Valor}}</td>
-				<td class="row">{{row.MedioDePagoUso.nombre}}</td>
-				<td class="row">{{row.prestamo.nombre}}</td>
-				<td class="row">
-					<button type="button" class="btn btn-default"
-						ng-click="editar(row)">
-						<span class="glyphicon glyphicon-pencil"></span>Editar
-					</button>
-					<button type="button" class="btn btn-default"
-						ng-click="eliminar(row)">
-						<span class="glyphicon glyphicon-remove"></span>Eliminar
-					</button>
-				</td>
-			</tr>
-		</table>
-		<div dir-pagination-controls></div>
-		<br />
-	</div>
-</div>
-
-<div class="panel panel-primary" ng-show="panelEditar">
-	<div class="panel-heading">Parametrizaci&oacute;n de Pago</div>
-	<div class="panel-body">
-
-		<div class="form-group col-md-6"
-			ng-class="errores.medioPago?'error':''">
-			<label for="medioPago">medioPago</label> <input id="medioPago"
-				class="form-control" type="text"
-				ng-model="datosFormulario.medioPago" placeholder="medioPago" />
-			<div ng-show="errores.medioPago">{{errores.medioPago}}</div>
-		</div>
-		<div class="form-group col-md-6" ng-class="errores.Valor?'error':''">
-			<label for="Valor">Valor</label> <input id="Valor"
-				class="form-control" type="text" ng-model="datosFormulario.Valor"
-				placeholder="Valor" />
-			<div ng-show="errores.Valor">{{errores.Valor}}</div>
-		</div>
-		<div class="row">
-			<div class="form-group col-md-6"
-				ng-class="errores.MedioDePagoUso?'error':''">
-				<label>MedioDePagoUso</label> <select id="MedioDePagoUso"
-					class="form-control" ng-model="datosFormulario.MedioDePagoUso"
-					ng-options="option.nombre for option in listaMedioDePagoUso track by option.id">
-				</select>
-				<div ng-show="errores.MedioDePagoUso">{{errores.MedioDePagoUso}}</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="form-group col-md-6"
-				ng-class="errores.prestamo?'error':''">
-				<label>prestamo</label> <select id="prestamo" class="form-control"
-					ng-model="datosFormulario.prestamo"
-					ng-options="option.nombre for option in listaPrestamo track by option.id">
-				</select>
-				<div ng-show="errores.prestamo">{{errores.prestamo}}</div>
-			</div>
-		</div>
-
-		<div class="btn-group">
-			<button type="button" class="btn btn-default" ng-click="guardar()">Aceptar</button>
-			<button type="button" class="btn btn-default" ng-click="cancelar()">Cancelar</button>
-		</div>
+            <div class="container table-striped">
+                <div class="row align-items-center" style="background-color: aqua">
+                    <div class="col-md-2">
+                        Bicicleta
+                    </div>
+                    <div class="col-md-2">
+                        Valor alquiler
+                    </div>
+                    <div class="col-md-2">
+                        Dias
+                    </div>
+                    <div class="col-md-4">
+                        Imagen
+                    </div>
+                    <div class="col-md-2">
+                        Valor Total
+                    </div>
+                </div>
+                <br>
+                <div class="row align-items-center" ng-model="bike">
+                    <div class="col-md-2">
+                        {{bike.referencia}}
+                    </div>
+                    <div class="col-md-2">
+                        {{bike.precioAlquiler | currency }}
+                    </div>
+                    <div class="col-md-2">
+                        <select ng-model="range" ng-change="calcTotal(range)">
+                                <option ng-repeat="n in rangeDays" value="{{n}}">{{n}}</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <img ng-src="{{bike.foto}}" alt="Bike Image"/>
+                    </div>
+                     <div class="col-md-2" style="font-size:bold">
+                        {{valTotal | currency}}
+                    </div>
+                </div>
+                <div class="row align-items-right">
+                    <div class="col-md-2" style="font-size:bold">
+                        Valor Total:
+                    </div>
+                    <div class="col-md-1" style="font-size:bold">
+                        {{valTotal | currency}}
+                    </div>
+                </div>
+            </div>
+            
+            <br>
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <input type="radio" ng-model="typePayment" name="typePayment" value="pse" >  PSE<br>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="radio" ng-model="typePayment" name="typePayment" value="creditCard" >  Credit Card<br>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <table ng-show="typePayment == 'pse'">
+                            <tr style="height:30px">
+                                <td>Banco</td>
+                                <td>
+                                    <select>
+                                        <option ng-repeat="banco in listaBancos">{{banco.nombre}}</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                    <td>
+                                        Valor
+                                    </td>
+                                    <td>
+                                        {{valTotal | currency}}
+                                    </td>
+                                </tr>
+                            <tr style="height:30px">
+                                <td>
+                                    <button type="button" class="btn btn-default" ng-click="continuarPSE()">
+                                    Continuar</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-6">
+                        
+                        <table ng-show="typePayment == 'creditCard'">
+                            <tr>
+                                <td>
+                                    <input type="radio" ng-model="typeCredit" name="typeCredit" value="mastercard" />
+                                    <img ng-src="https://www.2-spyware.com/news/wp-content/uploads/news/mastercard.png" />
+                                </td>
+                                <td>
+                                    <input type="radio" ng-model="typeCredit" name="typeCredit" value="visa" />
+                                    <img ng-src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQseU27bubG-pWz_TQWzmAShLzGXXQMHJw2UHsgH34QH2gwVMY8" />
+                                </td>
+                            </tr>
+                                <tr style="height:30px">
+                                    <td>
+                                        Banco:
+                                    </td>
+                                    <td>
+                                        <select>
+                                            <option ng-repeat="banco in listaBancos">{{banco.nombre}}</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Valor
+                                    </td>
+                                    <td>
+                                        {{valTotal | currency}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Numero de Tarjeta
+                                    </td>
+                                    <td>
+                                        <input type="text" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Nombre titular
+                                    </td>
+                                    <td>
+                                        <input type="text" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Codigo de verificacion
+                                    </td>
+                                    <td>
+                                        <input type="text" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Vigencia
+                                    </td>
+                                    <td>
+                                        <input type="text" />
+                                    </td>
+                                </tr>
+                                <tr style="height:30px" class="align-items-center">
+                                    <td colspan="2">
+                                        <button type="button" class="btn btn-default" ng-click="continuarPSE()">
+                                        Pagar</button>
+                                    </td>
+                                </tr>
+                            </table>
+                    </div>
+                </div>
+            </div>
 	</div>
 </div>
 

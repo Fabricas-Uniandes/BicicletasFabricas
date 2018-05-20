@@ -42,6 +42,8 @@ public class AccesorioDTO {
    * @generated
    */
   private String foto;
+  
+  private int precio;
 
   /**
    * @generated
@@ -100,4 +102,14 @@ public class AccesorioDTO {
   public void setFoto(String foto) {
     this.foto = foto;
   }
+
+  public int getPrecio() {
+    return precio;
+  }
+
+  public void setPrecio(int precio) {
+    this.precio = precio;
+  }
+  
+  
 }

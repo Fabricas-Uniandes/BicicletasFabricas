@@ -3,8 +3,15 @@
 module.controller('PagoCtrl', ['$scope', '$filter', '$http', function ($scope, $filter, $http) {
     //listar
     $scope.lista = [];
+    $scope.listaBancos = [];
+    $scope.bike;
+    $scope.valTotal;
     $scope.datosFormulario = {};
     $scope.panelEditar = false;
+    $scope.typePayment;
+    
+    
+    /*
     $scope.listar=function(){
         $http.get('./webresources/Pago', {})
             .success(function (data, status, headers, config) {
@@ -13,28 +20,40 @@ module.controller('PagoCtrl', ['$scope', '$filter', '$http', function ($scope, $
                 alert('Error al consultar la informaci\xf3n, por favor intente m\xe1s tarde');
         });    
     };
-
-        $scope.listarMedioDePagoUso=function(){
-            $http.get('./webresources/MedioDePagoUso', {})
-                .success(function (data, status, headers, config) {
-                    $scope.listaMedioDePagoUso = data;
-                }).error(function (data, status, headers, config) {
-                    alert('Error al consultar la informaci\xf3n de MedioDePagoUso, por favor intente m\xe1s tarde');
-            });    
-        };
-        $scope.listarMedioDePagoUso();
-            $scope.listarPrestamo=function(){
-            $http.get('./webresources/Prestamo', {})
-                .success(function (data, status, headers, config) {
-                    $scope.listaPrestamo = data;
-                }).error(function (data, status, headers, config) {
-                    alert('Error al consultar la informaci\xf3n de prestamo, por favor intente m\xe1s tarde');
-            });    
-        };
-        $scope.listarPrestamo();
+	*/
+    
+    $scope.listarBancos=function(){
+        $http.get('./webresources/Pago/bancos', {})
+            .success(function (data, status, headers, config) {
+                $scope.listaBancos = data;
+            }).error(function (data, status, headers, config) {
+                alert('Error al consultar la informaci\xf3n de MedioDePagoUso, por favor intente m\xe1s tarde');
+        });    
+    };
+    
+    $scope.getBike = function(data){
+        $http.get('./webresources/Bicicleta/1', {})
+            .success(function (data, status, headers, config) {
+                $scope.bike = data;
+            }).error(function (data, status, headers, config) {
+                alert('Error al consultar la informaci\xf3n de getBike, por favor intente m\xe1s tarde');
+        });
+    }
         
 
-    $scope.listar();
+    //$scope.listar();
+    $scope.listarBancos();
+    $scope.getBike();
+    $scope.rangeDays = _.range(1, 11);
+    
+    $scope.calcTotal = function(data){
+        if($scope.valTotal != undefined && $scope.bike != undefined){
+            $scope.valTotal = $scope.bike.precioAlquiler * data;
+        }
+        else
+            $scope.valTotal = 0;
+    }
+    $scope.calcTotal();
     //guardar
     $scope.nuevo = function () {
         $scope.panelEditar = true;
@@ -77,4 +96,17 @@ module.controller('PagoCtrl', ['$scope', '$filter', '$http', function ($scope, $
             });   
         }
     };
+    
+    $scope.continuarPSE = function(){
+    	
+    	$http.post('./webresources/Pago', JSON.stringify($scope.datosFormulario), {}
+        ).success(function (data, status, headers, config) {
+            alert("Los datos han sido guardados con Exito");
+            $scope.panelEditar = false;
+            $scope.listar();
+        }).error(function (data, status, headers, config) {
+            alert('Error al guardar la informaci\xf3n, por favor intente m\xe1s tarde');
+        });
+        $window.location.href = 'https://www.pse.com.co/inicio';
+    }
 }]);
