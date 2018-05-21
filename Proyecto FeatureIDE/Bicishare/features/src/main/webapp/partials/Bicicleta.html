@@ -23,10 +23,10 @@
 			<tr dir-paginate="row in lista|filter: q|itemsPerPage:10">
 				<td>{{row.serial}}</td>
 				/*if[Pago]*/
-				<td>{{row.precio}}</td>
-				<td>{{row.precioAlquiler}}</td>
+				<td>{{row.precio | currency}}</td>
+				<td>{{row.precioAlquiler | currency}}</td>
 				/*end[Pago]*/
-				<td>{{row.foto}}</td>
+				<td><img ng-src="{{row.foto}}" /></td>
 				<td class="row">{{row.proveedor.nombre}}</td>
 				<td class="row">{{row.marca.nombre}}</td>
 				<td class="row">

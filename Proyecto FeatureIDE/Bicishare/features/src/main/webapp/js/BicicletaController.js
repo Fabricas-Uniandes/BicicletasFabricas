@@ -89,9 +89,9 @@ module.controller('BicicletaCtrl', ['$scope', '$filter', '$http', '$window', fun
     //Redireccionar pago Seleccionar
     $scope.seleccionar = function (data) {
     /*if[Pago]*/
-        $window.location.href = '/src/Pago/' + data.id;
+        $window.location.href = '/src/#/Pago/';
     /*else[Pago]*/
-    	$window.location.href = '/src/Prestamo/' + data.id;
+    	$window.location.href = '/src/#/Prestamo/' + data.id;
 	/*end[Pago]*/
         
     };
