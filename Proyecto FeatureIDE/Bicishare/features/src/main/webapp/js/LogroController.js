@@ -1,7 +1,7 @@
 'use strict';
 
 module.controller('LogroCtrl', ['$scope', '$filter', '$http', function ($scope, $filter, $http) {
-    //listar
+    /*if[Gamification]*/
     $scope.lista = [];
     $scope.datosFormulario = {};
     $scope.panelEditar = false;
@@ -13,17 +13,6 @@ module.controller('LogroCtrl', ['$scope', '$filter', '$http', function ($scope, 
                 alert('Error al consultar la informaci\xf3n, por favor intente m\xe1s tarde');
         });    
     };
-
-        $scope.listarBiciusuario=function(){
-            $http.get('./webresources/Biciusuario', {})
-                .success(function (data, status, headers, config) {
-                    $scope.listaBiciusuario = data;
-                }).error(function (data, status, headers, config) {
-                    alert('Error al consultar la informaci\xf3n de biciusuario, por favor intente m\xe1s tarde');
-            });    
-        };
-        $scope.listarBiciusuario();
-        
 
     $scope.listar();
     //guardar
@@ -68,4 +57,5 @@ module.controller('LogroCtrl', ['$scope', '$filter', '$http', function ($scope, 
             });   
         }
     };
+    /*end[Gamification]*/
 }]);

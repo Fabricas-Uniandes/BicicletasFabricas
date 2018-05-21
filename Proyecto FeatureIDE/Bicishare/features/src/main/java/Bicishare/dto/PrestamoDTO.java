@@ -43,6 +43,11 @@ public class PrestamoDTO {
 	/**
 	 * @generated
 	 */
+	private String fechaRealDevolucion;
+	
+	/**
+	 * @generated
+	 */
 	private List<BicicletaDTO> bicicleta;
 
 	public List<BicicletaDTO> getBicicleta() {
@@ -80,7 +85,7 @@ public class PrestamoDTO {
 	/**
 	 * @generated
 	 */
-	private BiciusuarioDTO biciusuario;
+	private UsuarioDTO usuario;
 
 	/**
 	 * @generated
@@ -101,6 +106,14 @@ public class PrestamoDTO {
 	 */
 	public void setFechaInicio(String fechaInicio) {
 		this.fechaInicio = fechaInicio;
+	}
+	
+	public String getFechaRealDevolucion() {
+		return this.fechaRealDevolucion;
+	}
+
+	public void setFechaRealDevolucion(String fechaRealDevolucion) {
+		this.fechaRealDevolucion = fechaRealDevolucion;
 	}
 
 	/**
@@ -139,16 +152,16 @@ public class PrestamoDTO {
 	 * @return
 	 * @generated
 	 */
-	public BiciusuarioDTO getBiciusuario() {
-		return this.biciusuario;
+	public UsuarioDTO getUsuario() {
+		return this.usuario;
 	}
 
 	/**
 	 * @param
 	 * @generated
 	 */
-	public void setBiciusuario(BiciusuarioDTO biciusuario) {
-		this.biciusuario = biciusuario;
+	public void setUsuario(UsuarioDTO usuario) {
+		this.usuario = usuario;
 	}
 
 	/**
