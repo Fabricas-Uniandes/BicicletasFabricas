@@ -85,8 +85,9 @@ public class AccesorioLogica {
     entidad.setNombre(dto.getNombre());
     entidad.setTipo(dto.getTipo());
     entidad.setFoto(dto.getFoto());
+    /*if[Pago]*/
     entidad.setPrecio(dto.getPrecio());
-
+    /*end[Pago]*/
     return entidad;
   }
 
@@ -118,8 +119,9 @@ public class AccesorioLogica {
     dto.setNombre(entidad.getNombre());
     dto.setTipo(entidad.getTipo());
     dto.setFoto(entidad.getFoto());
+    /*if[Pago]*/
     dto.setPrecio(entidad.getPrecio());
-
+    /*end[Pago]*/
     return dto;
   }
 
