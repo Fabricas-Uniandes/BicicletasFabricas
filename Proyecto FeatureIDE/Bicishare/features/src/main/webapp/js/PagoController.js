@@ -43,8 +43,7 @@ module.controller('PagoCtrl', ['$scope', '$filter', '$http', function ($scope, $
     
     $scope.calcTotal = function(data, item){
     	if($scope.valTotal != undefined && $scope.itemsCarrito != undefined){
-            item.valTotal = item.precio * data * item.cantidad;
-            $scope.valTotal = 0;
+    		item.valTotal = (item.precioAlquiler != undefined ? item.precioAlquiler:item.precio) * data * item.cantidad;$scope.valTotal = 0;
             $scope.itemsCarrito.forEach(function(element){
                 $scope.valTotal += element.valTotal;
             });

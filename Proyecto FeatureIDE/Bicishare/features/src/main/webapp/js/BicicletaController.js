@@ -22,8 +22,10 @@ module.controller('BicicletaCtrl', ['$scope', '$filter', '$http', '$window', fun
       var carrito = localStorage.getItem("carrito");
       carrito = carrito ? JSON.parse(carrito) : [];
       bicicleta.cantidad = 0;
+      bicicleta.tipo = 'bici';
       var existe = carrito.filter(function(current, index, array) {
-        return current.id === bicicleta.id;
+        if(bicicleta.tipo == 'bici')
+        	return current.id === bicicleta.id;
       })[0];
       if(existe) {
         existe.cantidad++;

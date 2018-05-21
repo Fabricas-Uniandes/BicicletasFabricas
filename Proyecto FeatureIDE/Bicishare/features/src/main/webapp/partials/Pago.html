@@ -26,10 +26,10 @@
                 <br>
                 <div class="row align-items-center" ng-repeat="item in itemsCarrito">
                     <div class="col-md-2">
-                        {{item.nombre}}
+                        {{item.nombre!=undefined?item.nombre:item.referencia}}
                     </div>
                     <div class="col-md-2">
-                        {{item.precio | currency }}
+                        {{(item.precioAlquiler != undefined ? item.precioAlquiler:item.precio) | currency }}
                     </div>
                     <div class="col-md-1">
                         {{item.cantidad}}
