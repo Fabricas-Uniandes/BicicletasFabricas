@@ -16,6 +16,12 @@
 		<feature manual="selected" name="PSE"/>
 		<feature manual="selected" name="Efectivo"/>
 		<feature manual="selected" name="Tarjeta de Credito"/>
+		<feature manual="selected" name="Gamification"/>
+		<feature automatic="selected" name="Ver Retos"/>
+		<feature automatic="selected" name="Crear Retos"/>
+		<feature automatic="selected" name="Contador"/>
+		<feature automatic="selected" name="Ver Avance"/>
+		<feature automatic="selected" name="Aprobar Retos"/>
 		<feature manual="selected" name="Bonificaciones"/>
 		<feature automatic="selected" name="Ver Catalogo"/>
 		<feature automatic="selected" name="Seleccionar Premios"/>
