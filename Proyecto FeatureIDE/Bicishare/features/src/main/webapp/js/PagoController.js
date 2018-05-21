@@ -1,6 +1,6 @@
 'use strict';
 
-module.controller('PagoCtrl', ['$scope', '$filter', '$http', function ($scope, $filter, $http) {
+module.controller('PagoCtrl', ['$scope', '$filter', '$http', '$window', function ($scope, $filter, $http, $window) {
     //listar
     $scope.lista = [];
     $scope.listaBancos = [];
@@ -111,18 +111,19 @@ module.controller('PagoCtrl', ['$scope', '$filter', '$http', function ($scope, $
     	$scope.datosPago.medioPago = $scope.typePayment;
     	$http.post('./webresources/Pago', JSON.stringify($scope.datosPago), {}
         ).success(function (data, status, headers, config) {
-            alert("Los datos han sido guardados con Exito");
             $scope.panelEditar = false;
             let datosPrestamo = {
-            		'fechafin' = Date.now(), 
-            		'fechainicio' = Date.now(), 
-            		'pago_id' = data.id, 
-            		'usuario_id' = 1
+            		'fechafin' : getCurrentDate(),
+            		'fechainicio' : getCurrentDate(3),
+                    'pago_id' : data.id, 
+            		'usuario_id' : 1
             }
             $http.post('./webresources/Prestamo', JSON.stringify(datosPrestamo), {}
             ).success(function (data, status, headers, config) {
                 alert("Los datos han sido guardados con Exito");
                 $scope.panelEditar = false;
+                localStorate.removeItem('carrito');
+                $scope.itemsCarrito = []
                 $scope.listar();
             }).error(function (data, status, headers, config) {
                 alert('Error al guardar la informaci\xf3n, por favor intente m\xe1s tarde');
@@ -134,8 +135,25 @@ module.controller('PagoCtrl', ['$scope', '$filter', '$http', function ($scope, $
     	if($scope.typePayment == 'creditCard'){
     		localStorage.setItem('creditPayment', JSON.stringify($scope.pagoCredito));
     	}
-    	//localStorate.removeItem('carrito');
-        //$scope.itemsCarrito = []
-    	$window.location.href = 'https://www.pse.com.co/inicio';
+    	else
+    		$window.location.href = 'https://www.pse.com.co/inicio';
+    }
+    
+    function getCurrentDate(days){
+        var today = new Date();
+        var dd = today.getDate() + (days == undefined ? 0 : days);
+        var mm = today.getMonth()+1; //January is 0!
+        var yyyy = today.getFullYear();
+
+        if(dd<10) {
+            dd = '0'+dd
+        } 
+
+        if(mm<10) {
+            mm = '0'+mm
+        } 
+
+        today = mm + '/' + dd + '/' + yyyy;
+        return today;
     }
 }]);
