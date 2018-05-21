@@ -44,7 +44,8 @@ module.controller('PagoCtrl', ['$scope', '$filter', '$http', function ($scope, $
     $scope.calcTotal = function(data, item){
     	if($scope.valTotal != undefined && $scope.itemsCarrito != undefined){
     		item.valTotal = (item.precioAlquiler != undefined ? item.precioAlquiler:item.precio) * data * item.cantidad;$scope.valTotal = 0;
-            $scope.itemsCarrito.forEach(function(element){
+    		$scope.valTotal = 0;
+    		$scope.itemsCarrito.forEach(function(element){
                 $scope.valTotal += element.valTotal;
             });
         }
@@ -95,6 +96,16 @@ module.controller('PagoCtrl', ['$scope', '$filter', '$http', function ($scope, $
         }
     };
     
+    $scope.removeItem = function(item){
+        for(var i = $scope.itemsCarrito.length - 1; i >= 0; i--){
+            if($scope.itemsCarrito[i].nombre == item.nombre || $scope.itemsCarrito[i].referencia == item.referencia){
+                $scope.itemsCarrito.splice(i,1);
+                localStorage.setItem('carrito', JSON.stringify($scope.itemsCarrito));
+                break;
+            }
+        }
+    }
+    
     $scope.continuarPago = function(){
     	$scope.datosPago.valor = $scope.valTotal;
     	$scope.datosPago.medioPago = $scope.typePayment;
@@ -102,12 +113,26 @@ module.controller('PagoCtrl', ['$scope', '$filter', '$http', function ($scope, $
         ).success(function (data, status, headers, config) {
             alert("Los datos han sido guardados con Exito");
             $scope.panelEditar = false;
+            let datosPrestamo = {
+            		'fechafin' = Date.now(), 
+            		'fechainicio' = Date.now(), 
+            		'pago_id' = data.id, 
+            		'usuario_id' = 1
+            }
+            $http.post('./webresources/Prestamo', JSON.stringify(datosPrestamo), {}
+            ).success(function (data, status, headers, config) {
+                alert("Los datos han sido guardados con Exito");
+                $scope.panelEditar = false;
+                $scope.listar();
+            }).error(function (data, status, headers, config) {
+                alert('Error al guardar la informaci\xf3n, por favor intente m\xe1s tarde');
+            });
             $scope.listar();
         }).error(function (data, status, headers, config) {
             alert('Error al guardar la informaci\xf3n, por favor intente m\xe1s tarde');
         });
     	if($scope.typePayment == 'creditCard'){
-    		localStorage.setItem('creditPayment', $scope.pagoCredito);
+    		localStorage.setItem('creditPayment', JSON.stringify($scope.pagoCredito));
     	}
     	//localStorate.removeItem('carrito');
         //$scope.itemsCarrito = []

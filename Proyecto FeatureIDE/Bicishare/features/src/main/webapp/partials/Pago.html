@@ -22,13 +22,16 @@
                     <div class="col-md-2">
                         Valor Total
                     </div>
+                    <div class="col-md-1">
+                        Remover
+                    </div>
                 </div>
                 <br>
                 <div class="row align-items-center" ng-repeat="item in itemsCarrito">
                     <div class="col-md-2">
                         {{item.nombre!=undefined?item.nombre:item.referencia}}
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-1">
                         {{(item.precioAlquiler != undefined ? item.precioAlquiler:item.precio) | currency }}
                     </div>
                     <div class="col-md-1">
@@ -44,6 +47,9 @@
                     </div>
                      <div class="col-md-2" style="font-size:bold">
                         {{item.valTotal | currency}}
+                    </div>
+                    <div class="col-md-1" style="text-align: center" >
+                        <input type="checkbox" ng-change="removeItem(item)" ng-model="chkSel"/>
                     </div>
                 </div>
                 <div class="row align-items-right">
