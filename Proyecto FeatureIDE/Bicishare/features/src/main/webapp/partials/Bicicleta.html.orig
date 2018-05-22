@@ -5,6 +5,46 @@
 			<button type="button" class="btn btn-default" ng-click="nuevo()">Nuevo
 				Bicicleta</button>
 		</div>
+<<<<<<< HEAD
+		<table class="resultados table table-striped">
+			<tr>
+				<th>serial</th>
+				/*if[Pago]*/
+				<th>precio</th>
+				<th>precioAlquiler</th>
+				/*end[Pago]*/
+				<th>foto</th>
+				<th>marca</th>
+				<th>proveedor</th>
+				<th><input class="form-control" ng-model="q"
+					placeholder="Buscar" /></th>
+			</tr>
+			<tr dir-paginate="row in lista|filter: q|itemsPerPage:10">
+				<td>{{row.serial}}</td>
+				/*if[Pago]*/
+				<td>{{row.precio | currency}}</td>
+				<td>{{row.precioAlquiler | currency}}</td>
+				/*end[Pago]*/
+				<td><img ng-src="{{row.foto}}" /></td>
+				<td class="row">{{row.proveedor.nombre}}</td>
+				<td class="row">{{row.marca.nombre}}</td>
+				<td class="row">
+					<button type="button" class="btn btn-default"
+						ng-click="editar(row)">
+						<span class="glyphicon glyphicon-pencil"></span>Editar
+					</button>
+					<button type="button" class="btn btn-default"
+						ng-click="eliminar(row)">
+						<span class="glyphicon glyphicon-remove"></span>Eliminar
+					</button>
+					<button type="button" class="btn btn-default"
+						ng-click="seleccionar(row)">
+						<span class="glyphicon glyphicon-remove"></span>Seleccionar
+					</button>
+				</td>
+			</tr>
+		</table>
+=======
             <ol dir-paginate="row in lista|filter: q|itemsPerPage:10" id="searchResults" class="section search-results list-view grid search-results-mot list--has-row-logos " imgtype="listingLightweight"> 
             <li class="results-item article grid "> 
                 <div class="rowItem item item--grid item--has-row-logo new" id="{{row.serial}}">
@@ -18,9 +58,10 @@
                         <div class="item__info ">
                         /*if[Pago]*/
                             <div class="item__price "> 
-                                <span class="price__fraction">{{row.precioAlquiler | currency}}</span>
+                                <span class="price__symbol">$</span> 
+                                <span class="price__fraction">{{row.precioAlquiler}}</span>
                             </div> 
-                            <div class="item__attrs">{{row.precio | currency}}</div>
+                            <div class="item__attrs">${{row.precio}}</div>
                             <div class="item__title list-view-item-title">
                                 <span class="main-title"> {{row.serial}} </span>
                             </div> 
@@ -39,6 +80,7 @@
             
             
 		
+>>>>>>> cd11e15995827ab55884b399ec160f45db80f819
 		<div dir-pagination-controls></div>
 		<br />
 	</div>

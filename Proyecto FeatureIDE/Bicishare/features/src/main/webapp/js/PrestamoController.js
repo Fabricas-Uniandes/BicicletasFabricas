@@ -14,6 +14,8 @@ module.controller('PrestamoCtrl', ['$scope', '$filter', '$http', function ($scop
         });    
     };
 
+/*if[Accesorios]*/
+
         $scope.listarAccesorios=function(){
             $http.get('./webresources/Accesorio', {})
                 .success(function (data, status, headers, config) {
@@ -23,7 +25,7 @@ module.controller('PrestamoCtrl', ['$scope', '$filter', '$http', function ($scop
             });    
         };
         $scope.listarAccesorios();
-        
+/*end[Accesorios]*/        
         /*if[Pago]*/
         
             $scope.listarPago=function(){
