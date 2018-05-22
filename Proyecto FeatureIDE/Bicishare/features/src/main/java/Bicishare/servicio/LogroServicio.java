@@ -18,7 +18,7 @@ import javax.ws.rs.core.*;
 @Consumes(MediaType.APPLICATION_JSON)
 public class LogroServicio {
 
-  /*if[Gamification]*/
+  
 
   @EJB
   private LogroLogica logica;
@@ -30,7 +30,7 @@ public class LogroServicio {
    * @generated
    */
   @GET
-  public List<LogroClienteDTO> obtenerTodosLogros() {
+  public List<LogroDTO> obtenerTodosLogros() {
     return logica.obtenerTodos();
   }
 
@@ -41,14 +41,8 @@ public class LogroServicio {
    */
   @GET
   @Path("/{id}")
-  public LogroClienteDTO obtenerLogro(@PathParam("id") Long id) {
+  public LogroDTO obtenerLogro(@PathParam("id") Long id) {
     return logica.obtener(id);
   }
-
-  @GET
-  @Path("/usuario/{id}")
-  public List<LogroClienteDTO> obtenerLogroPorUsuario(@PathParam("id") Long id) {
-    return logica.obtenerTodosPorUsuario(id);
-  }
-  /*end[Gamification]*/
+  
 }

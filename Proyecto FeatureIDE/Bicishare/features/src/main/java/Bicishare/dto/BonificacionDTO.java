@@ -28,6 +28,16 @@ public class BonificacionDTO {
 	public void setId(Long id) {
 		this.id = id;
 	}
+        
+        private String Imagen;
+
+	public String getImagen() {
+		return Imagen;
+	}
+
+	public void setImagen(String Imagen) {
+		this.Imagen = Imagen;
+	}
 
 	/**
 	 * @generated

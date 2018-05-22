@@ -15,7 +15,7 @@ import javax.ejb.Stateless;
 public class LogroLogica {
   
   @EJB
-  private LogroClienteDAO persistencia;
+  private LogroDAO persistencia;
 
   /**
    * Retorna una lista con los Logro que se encuentran en la base de datos
@@ -23,7 +23,7 @@ public class LogroLogica {
    * @return retorna una lista de LogroDTO
    * @generated
    */
-  public List<LogroClienteDTO> obtenerTodos() {
+  public List<LogroDTO> obtenerTodos() {
     return convertirEntidad(persistencia.obtenerTodos());
   }
 
@@ -34,7 +34,7 @@ public class LogroLogica {
    * @return Logro del id dado
    * @generated
    */
-  public LogroClienteDTO obtener(Long id) {
+  public LogroDTO obtener(Long id) {
     return convertirEntidad(persistencia.obtener(id));
   }
 
@@ -45,7 +45,7 @@ public class LogroLogica {
    * @return Logro con los cambios realizados por el proceso de guardar
    * @generated
    */
-  public LogroClienteDTO guardar(LogroClienteDTO dto) {
+  public LogroDTO guardar(LogroDTO dto) {
     return convertirEntidad(persistencia.guardar(convertirDTO(dto)));
   }
 
@@ -65,7 +65,7 @@ public class LogroLogica {
    * @param dto Logro a guardar
    * @generated
    */
-  public void actualizar(LogroClienteDTO dto) {
+  public void actualizar(LogroDTO dto) {
     persistencia.actualizar(convertirDTO(dto));
   }
 
@@ -76,21 +76,15 @@ public class LogroLogica {
    * @return entidad Logro
    * @generated
    */
-  public LogroCliente convertirDTO(LogroClienteDTO dto) {
+  public Logro convertirDTO(LogroDTO dto) {
     if (dto == null) {
       return null;
     }
-    LogroCliente entidad = new LogroCliente();
-    entidad.setId(dto.getId());
-    Usuario biciEntity = new Usuario();
-    biciEntity.setId(dto.getUsuario().getId());
-    entidad.setUsuario(biciEntity);
     
     Logro logroEntity = new Logro();
-    logroEntity.setId(dto.getLogro().getId());
-    entidad.setLogro(logroEntity);
+    logroEntity.setId(dto.getId());
     
-    return entidad;
+    return logroEntity;
   }
 
   /**
@@ -100,9 +94,9 @@ public class LogroLogica {
    * @return entidades List<Logro>
    * @generated
    */
-  public List<LogroCliente> convertirDTO(List<LogroClienteDTO> dtos) {
-    List<LogroCliente> entidades = new ArrayList<LogroCliente>();
-    for (LogroClienteDTO dto : dtos) {
+  public List<Logro> convertirDTO(List<LogroDTO> dtos) {
+    List<Logro> entidades = new ArrayList<Logro>();
+    for (LogroDTO dto : dtos) {
       entidades.add(convertirDTO(dto));
     }
     return entidades;
@@ -115,23 +109,17 @@ public class LogroLogica {
    * @return dto LogroDTO
    * @generated
    */
-  public LogroClienteDTO convertirEntidad(LogroCliente entidad) {
-    LogroClienteDTO dto = new LogroClienteDTO();
+  public LogroDTO convertirEntidad(Logro entidad) {
+    LogroDTO dto = new LogroDTO();
     dto.setId(entidad.getId());
     
-    UsuarioDTO bicidto = new UsuarioDTO();
-    bicidto.setId(entidad.getUsuario().getId());
-    bicidto.setNombreDeUsuario(entidad.getUsuario().getNombreDeUsuario());
-    dto.setUsuario(bicidto);
-    
     LogroDTO logrodto = new LogroDTO();
-    logrodto.setId(entidad.getLogro().getId());
-    logrodto.setImagen(entidad.getLogro().getImagen());
-    logrodto.setNombre(entidad.getLogro().getNombre());
-    logrodto.setValor(entidad.getLogro().getValor());
-    dto.setLogro(logrodto);
+    logrodto.setId(entidad.getId());
+    logrodto.setImagen(entidad.getImagen());
+    logrodto.setNombre(entidad.getNombre());
+    logrodto.setValor(entidad.getValor());
     
-    return dto;
+    return logrodto;
   }
 
   /**
@@ -141,16 +129,13 @@ public class LogroLogica {
    * @return dtos List<LogroDTO>
    * @generated
    */
-  public List<LogroClienteDTO> convertirEntidad(List<LogroCliente> entidades) {
-    List<LogroClienteDTO> dtos = new ArrayList<LogroClienteDTO>();
-    for (LogroCliente entidad : entidades) {
+  public List<LogroDTO> convertirEntidad(List<Logro> entidades) {
+    List<LogroDTO> dtos = new ArrayList<LogroDTO>();
+    for (Logro entidad : entidades) {
       dtos.add(convertirEntidad(entidad));
     }
     return dtos;
   }
   
-  public List<LogroClienteDTO> obtenerTodosPorUsuario(Long id) {
-    return convertirEntidad(persistencia.obtenerTodosPorUsuario(id));
-  }
   
 }
