@@ -1,0 +1,67 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.6.2
+-- Dumped by pg_dump version 9.6.2
+
+-- Started on 2018-05-21 22:18:47
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- TOC entry 230 (class 1259 OID 28551)
+-- Name: bonificacion; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE bonificacion (
+    id bigint NOT NULL,
+    configuracion character varying(255),
+    imagen character varying(255),
+    nombre character varying(255)
+);
+
+
+ALTER TABLE bonificacion OWNER TO postgres;
+
+--
+-- TOC entry 2329 (class 0 OID 28551)
+-- Dependencies: 230
+-- Data for Name: bonificacion; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY bonificacion (id, configuracion, imagen, nombre) FROM stdin;
+1	Descuento del 10% en tu próximo alquiler	http://www.dolmencr.com/descuentos-especiales-01.png	Descuento en alquiler
+2	Descuento del 50% en tu próximo alquiler	https://ugc.kn3.net/i/origin/http://www.psicoglobal.com/img/descuento-50.jpg	Descuento en alquiler
+3	Próximo alquiler gratuito	https://i1.wp.com/finanzasyproyectos.net/wp-content/uploads/2016/01/sale-606687_1280.jpg?resize=620%2C264&ssl=1	Descuento en alquiler
+\.
+
+
+--
+-- TOC entry 2211 (class 2606 OID 28558)
+-- Name: bonificacion bonificacion_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY bonificacion
+    ADD CONSTRAINT bonificacion_pkey PRIMARY KEY (id);
+
+
+-- Completed on 2018-05-21 22:18:48
+
+--
+-- PostgreSQL database dump complete
+--
+

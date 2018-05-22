@@ -1,0 +1,70 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.6.2
+-- Dumped by pg_dump version 9.6.2
+
+-- Started on 2018-05-21 22:16:45
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- TOC entry 228 (class 1259 OID 28535)
+-- Name: accesorio; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE accesorio (
+    id bigint NOT NULL,
+    foto character varying(255),
+    nombre character varying(255),
+    precio integer,
+    tipo character varying(255)
+);
+
+
+ALTER TABLE accesorio OWNER TO postgres;
+
+--
+-- TOC entry 2329 (class 0 OID 28535)
+-- Dependencies: 228
+-- Data for Name: accesorio; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY accesorio (id, foto, nombre, precio, tipo) FROM stdin;
+3	https://i.pinimg.com/564x/45/78/01/45780160965e17e8066cd660580ac177.jpg	Espejos retrovisores	\N	Generico
+1	https://i.linio.com/p/82b2d844d57b2f29b9a7fd5b6c502db7-product.jpg	Soporte para GoPro	\N	Generico
+2	https://ae01.alicdn.com/kf/HTB14q3CRVXXXXaiXXXXq6xXFXXXn/Bicicleta-titular-linterna-manillar-Accesorios-de-bicicleta-extender-Mount-soporte-de-l-mpara-luces-de-camping.jpg	Soporte de lámpara	\N	Generico
+4	https://i.pinimg.com/564x/13/d9/ed/13d9ed1cfe073bf37a6a2dba7b1ea063.jpg	Casco para bicicleta Hombre	\N	Indispensable
+5	https://i.pinimg.com/564x/8e/3a/c3/8e3ac31b5c8263e26aea561342ec7afe.jpg	Guantes para bicicleta	\N	Indispensable
+\.
+
+
+--
+-- TOC entry 2211 (class 2606 OID 28542)
+-- Name: accesorio accesorio_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY accesorio
+    ADD CONSTRAINT accesorio_pkey PRIMARY KEY (id);
+
+
+-- Completed on 2018-05-21 22:16:45
+
+--
+-- PostgreSQL database dump complete
+--
+

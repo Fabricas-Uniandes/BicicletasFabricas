@@ -1,0 +1,94 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.6.2
+-- Dumped by pg_dump version 9.6.2
+
+-- Started on 2018-05-21 22:16:27
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- TOC entry 229 (class 1259 OID 28543)
+-- Name: bicicleta; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE bicicleta (
+    id bigint NOT NULL,
+    foto character varying(255),
+    precio integer,
+    precioalquiler integer,
+    referencia character varying(255),
+    serial bigint,
+    marca_id bigint,
+    proveedor_id bigint
+);
+
+
+ALTER TABLE bicicleta OWNER TO postgres;
+
+--
+-- TOC entry 2331 (class 0 OID 28543)
+-- Dependencies: 229
+-- Data for Name: bicicleta; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY bicicleta (id, foto, precio, precioalquiler, referencia, serial, marca_id, proveedor_id) FROM stdin;
+1	https://cdn.needish.com/is-prod-deals/Fw1w6k3s9R1HGPhnZ5gBuw/scale/900x600.jpg	1500000	15000	Bicicleta Todoterreno con Freno de Disco y 18 Velocidades	1254789	1	1
+2	https://i.linio.com/p/29a9dfe7eab3b9056da7dd513122c51c-product.jpg	1000000	10000	Bicicleta Todoterreno Rin 26 18 Cambios D/pared Color Negro	985632147	2	1
+3	https://i.linio.com/p/709824ee990818b9571d86e40a08d8e6-product.jpg	1250000	12500	Bicicleta Rin 27.5 GW Piranha Gw 1.1 Shimano Tipo Moto 7 Vel	98564789	3	2
+4	https://i.linio.com/p/2874ded21af24a276dcdf2df4736822d-product.jpg	500000	5000	Bicicleta Dama Rin 26 18 Cambios Tipo Moto	65871	4	2
+5	https://s7d5.scene7.com/is/image/Specialized/?layer=0&wid=1920&hei=640&fmt=jpg&src=is{Specialized/background-white?wid=1920&hei=640}&layer=1&src=is{Specialized/209684?hei=600&wid=920&$hero$}	33000000	330000	S-Works Epic De Mujer	652148	5	2
+6	https://s7d5.scene7.com/is/image/Specialized/?layer=0&wid=1920&hei=640&fmt=jpg&src=is{Specialized/background-white?wid=1920&hei=640}&layer=1&src=is{Specialized/186679?hei=600&wid=920&$hero$}	3300000	33000	S-Works Epic XX1 Eagle De Hombre	652147	5	1
+7	https://s7d5.scene7.com/is/image/Specialized/?layer=0&wid=1920&hei=640&fmt=jpg&src=is{Specialized/background-white?wid=1920&hei=640}&layer=1&src=is{Specialized/186669?hei=600&wid=920&$hero$}	31000000	310000	S-Works Enduro 650b	12547	4	2
+8	https://s7d5.scene7.com/is/image/Specialized/?layer=0&wid=1920&hei=640&fmt=jpg&src=is{Specialized/background-white?wid=1920&hei=640}&layer=1&src=is{Specialized/208799?hei=600&wid=920&$hero$}	29000000	290000	S-Works Epic Hardtail XTR Di2 De Hombre	569874	4	1
+\.
+
+
+--
+-- TOC entry 2211 (class 2606 OID 28550)
+-- Name: bicicleta bicicleta_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY bicicleta
+    ADD CONSTRAINT bicicleta_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 2213 (class 2606 OID 28660)
+-- Name: bicicleta fk_bicicleta_marca_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY bicicleta
+    ADD CONSTRAINT fk_bicicleta_marca_id FOREIGN KEY (marca_id) REFERENCES marca(id);
+
+
+--
+-- TOC entry 2212 (class 2606 OID 28655)
+-- Name: bicicleta fk_bicicleta_proveedor_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY bicicleta
+    ADD CONSTRAINT fk_bicicleta_proveedor_id FOREIGN KEY (proveedor_id) REFERENCES proveedor(id);
+
+
+-- Completed on 2018-05-21 22:16:28
+
+--
+-- PostgreSQL database dump complete
+--
+

@@ -1,47 +1,42 @@
 <div class="panel panel-primary">
-	<div class="panel-heading">Parametrizaci&oacute;n de Bicicleta</div>
-	<div class="panel-body">
-		<div class="btn-group">
-			<button type="button" class="btn btn-default" ng-click="nuevo()">Nuevo
-				Bicicleta</button>
-		</div>
-            <ol dir-paginate="row in lista|filter: q|itemsPerPage:10" id="searchResults" class="section search-results list-view grid search-results-mot list--has-row-logos " imgtype="listingLightweight"> 
-            <li class="results-item article grid "> 
-                <div class="rowItem item item--grid item--has-row-logo new" id="{{row.serial}}">
-                    <div class="item__image item__image--grid"> 
-                        <div class="images-viewer" item-url="/src/Prestamo/{{row.serial}}" item-id="{{row.serial}}">
-                                <img ng-show="row.foto" alt="{{row.serial}}" src="{{row.foto}}" class="lazy-load">
-                                <img ng-show="!row.foto" alt="{{row.serial}}" src="https://escuelaenlanube.files.wordpress.com/2012/09/bicicleta.jpg" class="lazy-load">
-                        </div>
-                    </div> 
-                    <span class="item-loading__status-bar item-loading__hide"></span> 
-                        <div class="item__info ">
-                        /*if[Pago]*/
-                            <div class="item__price "> 
-                                <span class="price__fraction">{{row.precioAlquiler | currency}}</span>
-                            </div> 
-                            <div class="item__attrs">{{row.precio | currency}}</div>
-                            <div class="item__title list-view-item-title">
-                                <span class="main-title"> {{row.serial}} </span>
-                            </div> 
-                            /*end[Pago]*/
-                            <div class="item__location">{{row.marca.nombre + ' ' + row.proveedor.nombre}}</div> 
-                        </div>
-                    <div class="item__location_padb">
-                        <div class="item__location">
-                                <button class="add_cart_btn" ng-click="addToCartB(row)">Adicionar</button>
-                        </div> 
-                    </div>                        
-                </div>
-            </li>
-            </ol>  
-            
-            
-            
-		
-		<div dir-pagination-controls></div>
-		<br />
-	</div>
+  <div class="panel-body">
+    <ol dir-paginate="row in lista|filter: q|itemsPerPage:10" id="searchResults" class="section search-results list-view grid search-results-mot list--has-row-logos " imgtype="listingLightweight"> 
+      <li class="results-item article grid "> 
+        <div class="rowItem item item--grid item--has-row-logo new" id="{{row.serial}}">
+          <div class="item__image item__image--grid"> 
+            <div class="images-viewer" item-url="/src/Prestamo/{{row.serial}}" item-id="{{row.serial}}">
+              <img ng-show="row.foto" alt="{{row.serial}}" src="{{row.foto}}" class="lazy-load">
+              <img ng-show="!row.foto" alt="{{row.serial}}" src="https://escuelaenlanube.files.wordpress.com/2012/09/bicicleta.jpg" class="lazy-load">
+            </div>
+          </div> 
+          <span class="item-loading__status-bar item-loading__hide"></span> 
+          <div class="item__info ">
+            /*if[Pago]*/
+            <div class="item__price "> 
+              <span class="price__fraction">{{row.precioAlquiler| currency}}</span>
+            </div> 
+            <div class="item__attrs">{{row.precio| currency}}</div>
+            <div class="item__title list-view-item-title">
+              <span class="main-title"> {{row.serial}} </span>
+            </div> 
+            /*end[Pago]*/
+            <div class="item__location">{{row.marca.nombre + ' ' + row.proveedor.nombre}}</div> 
+          </div>
+          <div class="item__location_padb">
+            <div class="item__location">
+              <button class="add_cart_btn" ng-click="addToCartB(row)">Adicionar</button>
+            </div> 
+          </div>                        
+        </div>
+      </li>
+    </ol>  
+
+
+
+
+    <div dir-pagination-controls></div>
+    <br />
+  </div>
 </div>
 
 
