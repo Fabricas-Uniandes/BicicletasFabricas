@@ -37,6 +37,17 @@ public class Bonificacion {
 
 	// @Column(name = "Nombre")
 	private String Nombre;
+        
+        // @Column(name = "Imagen")
+	private String Imagen;
+
+        public String getImagen() {
+		return this.Imagen;
+	}
+
+	public void setImagen(String Imagen) {
+		this.Imagen = Imagen;
+	}
 
 	/**
 	 * @generated 1-1-false

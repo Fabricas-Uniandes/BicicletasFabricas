@@ -89,6 +89,7 @@ public class BonificacionLogica {
 		entidad.setId(dto.getId());
 		entidad.setNombre(dto.getNombre());
 		entidad.setConfiguracion(dto.getConfiguracion());
+                entidad.setImagen(dto.getImagen());
 
 		return entidad;
 	}
@@ -122,6 +123,7 @@ public class BonificacionLogica {
 		dto.setId(entidad.getId());
 		dto.setNombre(entidad.getNombre());
 		dto.setConfiguracion(entidad.getConfiguracion());
+                dto.setImagen(entidad.getImagen());
 
 		return dto;
 	}
